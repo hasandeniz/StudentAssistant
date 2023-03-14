@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group1">
+        <item
+                android:id="@+id/overviewFragment"
+                android:title="Overview"
+                android:icon="@drawable/ic_home"
+                android:checkable="true"
+        />
+        <item
+                android:id="@+id/classroomFragment"
+                android:title="Classroom"
+                android:icon="@drawable/ic_classroom"
+                android:checkable="true"
+        />
+        <item
+                android:id="@+id/coursesFragment"
+                android:title="Courses"
+                android:icon="@drawable/ic_courses"
+                android:checkable="true"
+        />
+        <item
+                android:id="@+id/gradesFragment"
+                android:title="Grades"
+                android:icon="@drawable/ic_grades"
+                android:checkable="true"
+        />
+    </group>
+
+    <group android:id="@+id/group2">
+
+        <item
+                android:id="@+id/timetableFragment"
+                android:title="Timetable"
+                android:icon="@drawable/ic_timetable"
+                android:checkable="true"
+        />
+        <item
+                android:id="@+id/settingsFragment"
+                android:title="Settings"
+                android:icon="@drawable/ic_settings"
+                android:checkable="true"
+        />
+
+    </group>
+</menu>
