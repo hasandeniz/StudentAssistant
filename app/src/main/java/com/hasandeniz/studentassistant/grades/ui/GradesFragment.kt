@@ -1,10 +1,10 @@
 package com.hasandeniz.studentassistant.grades.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.hasandeniz.studentassistant.R
 import dagger.hilt.android.AndroidEntryPoint
 

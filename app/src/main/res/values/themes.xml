@@ -36,7 +36,6 @@
 
     </style>
 
-
     <style name="Theme.StudentAssistant" parent="Base.Theme.StudentAssistant"/>
 
     <style name="Widget.App.CardView" parent="Widget.Material3.CardView.Filled">

@@ -1,10 +1,10 @@
-package com.hasandeniz.studentassistant.courses.data.model
+package com.hasandeniz.studentassistant.offlineCourses.base.data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "offline_course_table")
 data class OfflineCourse(
 
     @ColumnInfo(name = "courseName")
@@ -27,8 +27,6 @@ data class OfflineCourse(
 
     @ColumnInfo(name = "courseColor")
     val courseColor: Int
-
-
 ){
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0

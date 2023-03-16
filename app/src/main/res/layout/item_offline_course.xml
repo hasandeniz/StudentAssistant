@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/course_recycler_row"
-    style="@style/Widget.App.CardView">
+    style="@style/Widget.App.CardView"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,24 +26,25 @@
             app:layout_constraintGuide_end="24dp" />
 
         <ImageView
-            android:id="@+id/ivIndicatorColor"
+            android:id="@+id/iv_indicator_color"
             android:layout_width="4dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
+            android:background="@drawable/indicator_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/twCourseName"
+            android:id="@+id/tv_course_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:text="Computer Organization"
+            tools:text="Computer Organization"
             android:maxLines="1"
             android:ellipsize="end"
             app:layout_constrainedWidth="true"
@@ -52,64 +55,65 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/twTeacherName"
+            android:id="@+id/tv_teacher_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:layout_marginEnd="4dp"
-            android:text="Hasan Deniz"
+            tools:text="Hasan Deniz"
             android:maxLines="1"
             android:ellipsize="end"
             app:layout_constrainedWidth="true"
             android:textAppearance="@style/LightCategoryTitle2"
-            app:layout_constraintEnd_toStartOf="@id/twDate"
+            app:layout_constraintEnd_toStartOf="@id/tv_date"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/twCourseName" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_course_name" />
 
         <TextView
-            android:id="@+id/twCourseRoom"
+            android:id="@+id/tv_course_room"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="28dp"
-            android:text="Mb - 108"
+            tools:text="Mb - 108"
             android:maxLines="1"
             android:ellipsize="end"
             app:layout_constrainedWidth="true"
             android:textAppearance="@style/LightCategoryTitle2"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/twCourseDate"
+            app:layout_constraintEnd_toStartOf="@id/tv_course_date"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/twTeacherName" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_teacher_name" />
 
 
         <TextView
-            android:id="@+id/twDate"
+            android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:text="Date"
+            tools:text="Date"
             android:drawablePadding="4dp"
             android:textAppearance="@style/LightCategoryTitle2"
             app:layout_constraintEnd_toEndOf="@id/guideline3"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@id/twTeacherName"
-            app:layout_constraintTop_toBottomOf="@+id/twCourseName" />
+            app:layout_constraintStart_toStartOf="@id/tv_teacher_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_course_name"
+            app:drawableStartCompat="@drawable/ic_calendar_date"/>
 
         <TextView
-            android:id="@+id/twCourseDate"
+            android:id="@+id/tv_course_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="28dp"
-            android:text="Wednesday 10:30"
+            tools:text="Wednesday 10:30"
             android:textAppearance="@style/LightCategoryTitle2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guideline3"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@id/twCourseRoom"
-            app:layout_constraintTop_toBottomOf="@+id/twTeacherName"/>
+            app:layout_constraintStart_toStartOf="@id/tv_course_room"
+            app:layout_constraintTop_toBottomOf="@+id/tv_teacher_name" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

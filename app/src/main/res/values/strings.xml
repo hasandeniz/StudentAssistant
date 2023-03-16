@@ -2,13 +2,6 @@
     <string name="app_name">Student Assistant</string>
     <string name="action_settings">Settings</string>
 
-    <string name="string_overview">Overview</string>
-    <string name="string_classroom">Classroom</string>
-    <string name="string_courses">Courses</string>
-    <string name="string_timetable">Timetable</string>
-    <string name="string_grades">Grades</string>
-    <string name="string_attendance">Attendance</string>
-    <string name="string_settings">Settings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="student_assistant">Student Assistant</string>
     <string name="offline_courses">Offline Courses</string>

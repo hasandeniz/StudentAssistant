@@ -15,7 +15,7 @@
                 android:checkable="true"
         />
         <item
-                android:id="@+id/coursesFragment"
+                android:id="@+id/offlineCoursesFragment"
                 android:title="Courses"
                 android:icon="@drawable/ic_courses"
                 android:checkable="true"
