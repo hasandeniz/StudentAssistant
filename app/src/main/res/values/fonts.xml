@@ -4,7 +4,7 @@
     <style name="LightMainTitle">
         <item name="android:fontFamily">@font/inter_semibold</item>
         <item name="android:textSize">22sp</item>
-        <item name="android:textColor">@color/md_theme_light_onSecondary</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
         <item name="backgroundColor">@color/white</item>
     </style>
 
@@ -18,7 +18,7 @@
         <item name="android:fontFamily">@font/inter_semibold</item>
         <item name="android:textSize">20sp</item>
         <item name="android:letterSpacing">0</item>
-        <item name="android:textColor">@color/md_theme_light_onSecondary</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
     </style>
 
     <style name="DarkSubtitle">
@@ -32,7 +32,7 @@
         <item name="android:fontFamily">@font/inter_semibold</item>
         <item name="android:textSize">20sp</item>
         <item name="android:letterSpacing">0</item>
-        <item name="android:textColor">@color/md_theme_light_onSecondary</item>
+        <item name="android:textColor">@color/md_theme_light_onSecondaryContainer</item>
     </style>
 
     <style name="DarkCardTitle">
@@ -46,7 +46,7 @@
         <item name="android:fontFamily">@font/inter_regular</item>
         <item name="android:textSize">16sp</item>
         <item name="android:letterSpacing">0</item>
-        <item name="android:textColor">@color/md_theme_light_onTertiary</item>
+        <item name="android:textColor">@color/md_theme_light_onSecondaryContainer</item>
     </style>
 
     <style name="DarkInputField">
@@ -73,25 +73,25 @@
     <style name="LightViewMore">
         <item name="android:fontFamily">@font/inter_regular</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:textColor">@color/md_theme_light_onSurfaceVariant</item>
     </style>
 
     <style name="LightCategoryTitle">
         <item name="android:fontFamily">@font/inter_semibold</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/md_theme_light_onSecondary</item>
+        <item name="android:textColor">@color/md_theme_light_onSecondaryContainer</item>
     </style>
 
     <style name="LightCategoryTitle2">
         <item name="android:fontFamily">@font/inter_medium</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:textColor">@color/md_theme_light_onSurfaceVariant</item>
     </style>
 
     <style name="LightCategoryTitle3">
         <item name="android:fontFamily">@font/inter_regular</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/md_theme_dark_onSecondary</item>
+        <item name="android:textColor">@color/md_theme_light_onTertiaryContainer</item>
     </style>
 
     <style name="DarkViewMore">
@@ -110,14 +110,14 @@
         <item name="android:fontFamily">@font/inter_regular</item>
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">-0.01</item>
-        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:textColor">@color/md_theme_light_onSurfaceVariant</item>
     </style>
 
     <style name="LightContentGrades">
         <item name="android:fontFamily">@font/inter_regular</item>
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">-0.01</item>
-        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:textColor">@color/md_theme_light_onSurfaceVariant</item>
     </style>
 
     <style name="DarkContent">

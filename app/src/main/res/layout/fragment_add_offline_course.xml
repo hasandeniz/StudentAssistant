@@ -33,11 +33,9 @@
         android:focusable="true"
         android:visibility="gone"/>
 
-    <View
+    <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/light_texts_stroke"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/et_course_name" />
 
     <EditText
@@ -55,11 +53,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_course_name" />
 
-    <View
+    <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@color/light_texts_stroke"
         app:layout_constraintTop_toBottomOf="@+id/et_teacher_name" />
 
     <EditText
@@ -77,18 +74,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_teacher_name" />
 
-    <View
+    <com.google.android.material.divider.MaterialDivider
         android:id="@+id/view8"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@color/light_texts_stroke"
         app:layout_constraintTop_toBottomOf="@+id/et_room" />
 
-    <View
+    <com.google.android.material.divider.MaterialDivider
         android:id="@+id/view9"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@color/light_texts_stroke"
         app:layout_constraintTop_toBottomOf="@+id/view8" />
@@ -106,14 +103,15 @@
         android:focusableInTouchMode="false"
         android:hint="@string/day"
         android:minHeight="48dp"
-        android:textColorHint="@color/md_theme_light_onSecondary"
+        android:drawableTint="@color/md_theme_light_onBackground"
+        android:textColorHint="@color/md_theme_light_onBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view9" />
 
-    <View
+    <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@color/light_texts_stroke"
         app:layout_constraintTop_toBottomOf="@+id/et_date" />
@@ -128,17 +126,18 @@
         android:cursorVisible="false"
         android:drawableStart="@drawable/ic_start_time"
         android:focusable="false"
+        android:drawableTint="@color/md_theme_light_onBackground"
         android:focusableInTouchMode="false"
         android:hint="@string/start_time"
         android:minHeight="48dp"
-        android:textColorHint="@color/md_theme_light_onSecondary"
+        android:textColorHint="@color/md_theme_light_onBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_date" />
 
-    <View
+    <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@color/light_texts_stroke"
         app:layout_constraintTop_toBottomOf="@+id/et_start_time" />
@@ -157,52 +156,18 @@
         android:focusableInTouchMode="false"
         android:hint="@string/finish_time"
         android:minHeight="48dp"
-        android:textColorHint="@color/md_theme_light_onSecondary"
+        android:textColorHint="@color/md_theme_light_onBackground"
+        android:drawableTint="@color/md_theme_light_onBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_start_time" />
 
-    <View
+    <com.google.android.material.divider.MaterialDivider
         android:id="@+id/view4"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@color/light_texts_stroke"
         app:layout_constraintTop_toBottomOf="@+id/et_finish_time" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_back"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingVertical="16dp"
-        android:text="@string/back"
-        android:textAppearance="@style/LightCategoryTitle"
-        app:cornerRadius="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="3:2"
-        app:layout_constraintEnd_toStartOf="@+id/btn_add"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.88"
-        android:visibility="gone">
-    </com.google.android.material.button.MaterialButton>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_add"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/add"
-        android:paddingVertical="16dp"
-        app:layout_constraintDimensionRatio="3:2"
-        app:cornerRadius="8dp"
-        android:textAppearance="@style/LightCategoryTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_back"
-        app:layout_constraintTop_toTopOf="@+id/btn_back"
-        android:visibility="gone"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
