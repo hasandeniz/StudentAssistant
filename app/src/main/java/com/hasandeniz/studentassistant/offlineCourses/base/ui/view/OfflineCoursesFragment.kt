@@ -4,14 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.hasandeniz.studentassistant.R
 import com.hasandeniz.studentassistant.databinding.FragmentOfflineCoursesBinding
 import com.hasandeniz.studentassistant.offlineCourses.base.data.model.OfflineCourse
-import com.hasandeniz.studentassistant.offlineCourses.base.ui.adapter.OfflineCourseEmptyStateObserver
 import com.hasandeniz.studentassistant.offlineCourses.base.ui.adapter.OfflineCoursesAdapter
+import com.hasandeniz.studentassistant.offlineCourses.base.ui.adapter.RecyclerViewEmptyStateObserver
 import com.hasandeniz.studentassistant.offlineCourses.base.ui.viewModel.OfflineCoursesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,7 +44,8 @@ class OfflineCoursesFragment : Fragment(), OfflineCoursesAdapter.OnItemClickList
             coursesRecyclerView.adapter = adapter
         }
 
-        val emptyStateObserver = OfflineCourseEmptyStateObserver(binding.offlineCourseEmptyState.root, binding.coursesRecyclerView)
+        val emptyStateObserver =
+            RecyclerViewEmptyStateObserver(binding.offlineCourseEmptyState.root, binding.coursesRecyclerView)
         adapter.registerAdapterDataObserver(emptyStateObserver)
 
         viewModel.allOfflineCourses.observe(viewLifecycleOwner) {
@@ -56,12 +61,16 @@ class OfflineCoursesFragment : Fragment(), OfflineCoursesAdapter.OnItemClickList
     }
 
     override fun onItemClick(offlineCourse: OfflineCourse) {
-        /*val unWrappedDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.indicator_background)
+        val unWrappedDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.indicator_background)
         val wrappedDrawable = DrawableCompat.wrap(unWrappedDrawable!!)
-        DrawableCompat.setTint(wrappedDrawable, offlineCourse.courseColor)*/
+        DrawableCompat.setTint(wrappedDrawable, offlineCourse.courseColor)
+        val action = OfflineCoursesFragmentDirections.actionOfflineCoursesFragmentToOfflineCourseDetailsFragment(
+            offlineCourse.uuid,
+            offlineCourse.courseName
+        )
+        findNavController().navigate(action)
 
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

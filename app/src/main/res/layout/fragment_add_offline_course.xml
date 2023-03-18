@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".offlineCourses.addCourse.ui.view.AddOfflineCourseFragment">
+    android:background="@color/light_backgrounds_main_background"
+    tools:context=".offlineCourses.addCourse.view.AddOfflineCourseFragment">
 
     <EditText
         android:id="@id/et_course_name"
@@ -30,8 +31,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/et_course_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/et_course_name"
-        android:focusable="true"
-        android:visibility="gone"/>
+        android:focusable="true" />
 
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
@@ -103,8 +103,7 @@
         android:focusableInTouchMode="false"
         android:hint="@string/day"
         android:minHeight="48dp"
-        android:drawableTint="@color/md_theme_light_onBackground"
-        android:textColorHint="@color/md_theme_light_onBackground"
+        android:textColorHint="@color/light_texts_main_titles"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view9" />
@@ -126,11 +125,10 @@
         android:cursorVisible="false"
         android:drawableStart="@drawable/ic_start_time"
         android:focusable="false"
-        android:drawableTint="@color/md_theme_light_onBackground"
         android:focusableInTouchMode="false"
         android:hint="@string/start_time"
         android:minHeight="48dp"
-        android:textColorHint="@color/md_theme_light_onBackground"
+        android:textColorHint="@color/light_texts_main_titles"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_date" />
@@ -156,8 +154,7 @@
         android:focusableInTouchMode="false"
         android:hint="@string/finish_time"
         android:minHeight="48dp"
-        android:textColorHint="@color/md_theme_light_onBackground"
-        android:drawableTint="@color/md_theme_light_onBackground"
+        android:textColorHint="@color/light_texts_main_titles"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_start_time" />
@@ -169,5 +166,39 @@
         android:layout_marginTop="8dp"
         android:background="@color/light_texts_stroke"
         app:layout_constraintTop_toBottomOf="@+id/et_finish_time" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_create_offline_course_back"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:text="@string/back"
+        android:textAppearance="@style/LightCategoryTitle"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="3:2"
+        app:layout_constraintEnd_toStartOf="@+id/btn_create_offline_course_add"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.88"
+        app:strokeColor="@color/light_backgrounds_closest_event_background">
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_create_offline_course_add"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:paddingVertical="16dp"
+        app:layout_constraintDimensionRatio="3:2"
+        app:cornerRadius="8dp"
+        android:textAppearance="@style/LightCategoryTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_create_offline_course_back"
+        app:layout_constraintTop_toTopOf="@+id/btn_create_offline_course_back" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,4 +21,6 @@ interface OfflineCourseDao {
 
     @Query("SELECT * FROM offline_course_table WHERE uuid = :uuid")
     suspend fun getOfflineCourseByUuid(uuid: Int): OfflineCourse
+
+
 }

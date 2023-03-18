@@ -3,7 +3,8 @@
     android:id="@+id/menu_item_button"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:insetTop="6dp"
-    android:insetBottom="6dp"
-    android:insetRight="10dp"
+    android:textAllCaps="false"
+    android:insetTop="8dp"
+    android:insetBottom="8dp"
+    android:insetRight="20dp"
     android:text="Save" />

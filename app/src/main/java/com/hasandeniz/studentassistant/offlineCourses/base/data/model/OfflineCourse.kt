@@ -3,31 +3,35 @@ package com.hasandeniz.studentassistant.offlineCourses.base.data.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.hasandeniz.studentassistant.grades.base.data.model.Grade
+import java.io.Serializable
 
 @Entity(tableName = "offline_course_table")
 data class OfflineCourse(
 
-    @ColumnInfo(name = "courseName")
+    @ColumnInfo(name = "Name")
     val courseName: String,
 
-    @ColumnInfo(name = "teacherName")
+    @ColumnInfo(name = "Teacher Name")
     val teacherName: String,
 
-    @ColumnInfo(name = "courseDay")
+    @ColumnInfo(name = "Day")
     val courseDay: String,
 
-    @ColumnInfo(name = "courseStartTime")
+    @ColumnInfo(name = "Start Time")
     val courseStartTime: String,
 
-    @ColumnInfo(name = "courseFinishTime")
+    @ColumnInfo(name = "Finish Time")
     val courseFinishTime: String,
 
-    @ColumnInfo(name = "courseRoom")
+    @ColumnInfo(name = "Room")
     val courseRoom: String,
 
-    @ColumnInfo(name = "courseColor")
+    @ColumnInfo(name = "Color")
     val courseColor: Int
-){
+
+
+): Serializable{
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0
 }

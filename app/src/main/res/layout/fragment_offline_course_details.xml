@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/light_backgrounds_main_background"
+    tools:context=".offlineCourses.courseDetails.view.OfflineCourseDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_backgrounds_main_background">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_course_summary"
+            style="@style/Widget.App.CardView"
+            android:layout_marginTop="24dp"
+            android:visibility="invisible"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_course_details_indicator"
+                    android:layout_width="4dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:contentDescription="@string/course_indicator_color"
+                    android:background="@drawable/indicator_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_teacher_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="4dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    tools:text="Hasan Deniz"
+                    android:textAppearance="@style/LightCategoryTitle2"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_course_details_date"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_course_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="4dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    tools:text="Mb - 108"
+                    android:textAppearance="@style/LightCategoryTitle2"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_course_details_course_date"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_course_details_teacher_name"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:drawablePadding="4dp"
+                    android:text="@string/date"
+                    android:textAppearance="@style/LightCategoryTitle"
+                    android:textColor="@color/light_texts_sub_titles"
+                    app:drawableStartCompat="@drawable/ic_calendar_date"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_course_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="24dp"
+                    tools:text="Wednesday 10:30"
+                    android:textAppearance="@style/LightCategoryTitle"
+                    android:textColor="@color/light_texts_sub_titles"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_course_details_date" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_course_details_average"
+            style="@style/Widget.App.CardView"
+            android:layout_marginTop="24dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_course_summary">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_course_details_graph_background"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/indicator_background"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+
+                <ImageView
+                    android:id="@+id/iv_course_details_graph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/ic_graph"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_course_details_graph_background"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_course_details_graph_background"
+                    app:layout_constraintStart_toStartOf="@+id/iv_course_details_graph_background"
+                    app:layout_constraintTop_toTopOf="@+id/iv_course_details_graph_background"
+                    android:contentDescription="@string/your_average" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_your_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/your_average"
+                    android:textAppearance="@style/LightTimetableContent"
+                    android:textColor="@color/light_texts_main_titles"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_course_details_graph_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/iv_course_details_graph_background"
+                    app:layout_constraintTop_toTopOf="@+id/iv_course_details_graph_background" />
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/circular_progress_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:indeterminateOnly="false"
+                    android:progress="0"
+                    app:indicatorColor="@color/light_base_purple"
+                    app:indicatorSize="80dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_course_details_graph_background"
+                    app:trackColor="#1A600bd6"
+                    app:trackCornerRadius="50dp"
+                    app:trackThickness="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_average_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dash"
+                    android:textAppearance="@style/LightInputField"
+                    app:layout_constraintBottom_toBottomOf="@+id/circular_progress_indicator"
+                    app:layout_constraintEnd_toEndOf="@+id/circular_progress_indicator"
+                    app:layout_constraintStart_toStartOf="@+id/circular_progress_indicator"
+                    app:layout_constraintTop_toTopOf="@+id/circular_progress_indicator" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_written_grade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/dash"
+                    android:textAppearance="@style/LightInputField"
+                    android:textColor="@color/light_texts_main_titles"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_course_details_oral_grade"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/circular_progress_indicator"
+                    app:layout_constraintTop_toTopOf="@+id/circular_progress_indicator" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_oral_grade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/dash"
+                    android:textAppearance="@style/LightInputField"
+                    android:textColor="@color/light_texts_main_titles"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_course_details_written_grade"
+                    app:layout_constraintTop_toTopOf="@+id/circular_progress_indicator" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_written"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/written"
+                    android:textAppearance="@style/LightCategoryTitle2"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_course_details_written_grade"
+                    app:layout_constraintStart_toStartOf="@+id/tv_course_details_written_grade"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_course_details_written_grade" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_verbal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/verbal"
+                    android:textAppearance="@style/LightCategoryTitle2"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_course_details_oral_grade"
+                    app:layout_constraintStart_toStartOf="@+id/tv_course_details_oral_grade"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_course_details_oral_grade" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_course_details_objective"
+            style="@style/Widget.App.CardView"
+            android:layout_marginTop="24dp"
+            app:layout_constraintVertical_bias="0"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_course_details_average">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/linear_progress_indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:progress="0"
+                    app:trackColor="#1A600bd6"
+                    app:indicatorColor="@color/light_base_purple"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:trackCornerRadius="2dp"
+                    app:trackThickness="12dp" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_objective_your_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/your_average"
+                    android:textAppearance="@style/LightCategoryTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linear_progress_indicator" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_objective_your_objective"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/your_objective"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textAppearance="@style/LightCategoryTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/linear_progress_indicator" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_objective_your_average_grade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dash"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:textAppearance="@style/LightInputField"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_course_details_objective_your_average" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_objective_your_objective_grade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/dash"
+                    android:textAppearance="@style/LightInputField"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_course_details_objective_your_objective" />
+
+                <View
+                    android:id="@+id/stroke_course_details_objective"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@color/light_texts_stroke"
+                    app:layout_constraintTop_toBottomOf="@id/tv_course_details_objective_your_objective_grade" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tv_course_details_objective_edit"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_arrow_right"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="@string/edit"
+                    android:textAlignment="textStart"
+                    android:textAppearance="@style/LightCategoryTitle2"
+                    android:textColor="@color/light_texts_text_color_on_white"
+                    app:iconPadding="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/stroke_course_details_objective"
+                    tools:ignore="RtlHardcoded" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_course_details_grades"
+            style="@style/Widget.App.CardView"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@id/cv_course_details_objective"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_grades_background"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/indicator_background"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+
+                <ImageView
+                    android:id="@+id/iv_course_details_grades"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/ic_grades_small"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_grades_background"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_grades_background"
+                    app:layout_constraintStart_toStartOf="@+id/iv_grades_background"
+                    app:layout_constraintTop_toTopOf="@+id/iv_grades_background"
+                    android:contentDescription="@string/grades" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_grades"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/grades"
+                    android:textAppearance="@style/LightTimetableContent"
+                    android:textColor="@color/light_texts_main_titles"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_grades_background"
+                    app:layout_constraintStart_toEndOf="@+id/iv_grades_background"
+                    app:layout_constraintTop_toTopOf="@+id/iv_grades_background" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/courseDetailsGradesRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_grades_background"
+                    app:layout_constraintBottom_toTopOf="@id/stroke_course_details_grades" />
+
+                <TextView
+                    android:id="@+id/tv_course_details_no_grades"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/there_are_no_grades"
+                    android:textAppearance="@style/LightCategoryTitle2"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="36dp"
+                    app:layout_constraintBottom_toTopOf="@id/stroke_course_details_grades"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_grades_background" />
+
+                <View
+                    android:id="@+id/stroke_course_details_grades"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="48dp"
+                    android:background="@color/light_texts_stroke"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tv_course_details_grades_see_more"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_arrow_right"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="@string/see_more"
+                    android:textAlignment="textStart"
+                    android:textAppearance="@style/LightCategoryTitle2"
+                    android:textColor="@color/light_texts_text_color_on_white"
+                    app:iconPadding="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="RtlHardcoded" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

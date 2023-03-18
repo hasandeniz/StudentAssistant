@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineCourseDetailsGradesRV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="64dp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_grade_details_grades_rv_background"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/indicator_background"
+                android:backgroundTint="@color/light_grades_highest_grade"
+                app:layout_constraintEnd_toEndOf="@id/guidelineCourseDetailsGradesRV"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+
+            <TextView
+                android:id="@+id/tv_grade_details_grade_grade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="85"
+                android:textAppearance="@style/LightContent"
+                android:textColor="@color/dark_texts_main_title"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_grade_details_grades_rv_background"
+                app:layout_constraintEnd_toEndOf="@+id/iv_grade_details_grades_rv_background"
+                app:layout_constraintStart_toStartOf="@id/iv_grade_details_grades_rv_background"
+                app:layout_constraintTop_toTopOf="@+id/iv_grade_details_grades_rv_background" />
+
+            <TextView
+                android:id="@+id/tv_grade_bottom_sheet_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Calculus"
+                android:textAppearance="@style/LightCategoryTitle"
+                app:layout_constrainedWidth="true"
+                android:textColor="@color/light_texts_main_titles"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintTop_toTopOf="@id/iv_grade_details_grades_rv_background"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_grade_details_grades_rv_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guidelineCourseDetailsGradesRV" />
+
+            <View
+                android:id="@+id/stroke_first_grade_bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/light_texts_stroke"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_grade_details_grades_rv_background" />
+
+            <TextView
+                android:id="@+id/tv_grade_bottom_sheet_grade_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/written"
+                android:layout_marginStart="16dp"
+                android:drawablePadding="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textAppearance="@style/LightCategoryTitle2"
+                app:layout_constraintTop_toBottomOf="@+id/stroke_first_grade_bottom_sheet"
+                app:drawableStartCompat="@drawable/ic_grade_type" />
+
+            <View
+                android:id="@+id/stroke_second_grade_bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/light_texts_stroke"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_grade_bottom_sheet_grade_type" />
+
+            <TextView
+                android:id="@+id/tv_grade_bottom_sheet_grade_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20 %"
+                android:layout_marginStart="16dp"
+                android:drawablePadding="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textAppearance="@style/LightCategoryTitle2"
+                app:layout_constraintTop_toBottomOf="@+id/stroke_second_grade_bottom_sheet"
+                app:drawableStartCompat="@drawable/ic_weight" />
+
+            <View
+                android:id="@+id/stroke_third_grade_bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/light_texts_stroke"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_grade_bottom_sheet_grade_weight" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_grade_bottom_sheet_edit"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingVertical="8dp"
+                android:text="@string/edit"
+                android:textAppearance="@style/LightCategoryTitle"
+                android:textColor="@color/light_texts_main_titles"
+                android:drawableTint="@color/light_texts_main_titles"
+                android:textAlignment="textStart"
+                android:drawableLeft="@drawable/ic_edit"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                app:iconPadding="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stroke_third_grade_bottom_sheet"
+                app:layout_constraintVertical_bias="1" />
+
+            <View
+                android:id="@+id/stroke_forth_grade_bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/light_texts_stroke"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_grade_bottom_sheet_edit" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_grade_bottom_sheet_delete"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingVertical="8dp"
+                android:text="@string/delete"
+                android:drawableTint="#E63933"
+                android:textColor="#E63933"
+                android:textAppearance="@style/LightCategoryTitle"
+                android:textAlignment="textStart"
+                android:drawableLeft="@drawable/ic_delete"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                app:iconPadding="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stroke_forth_grade_bottom_sheet"
+                app:layout_constraintVertical_bias="1" />
+
+            <View
+                android:id="@+id/stroke_fifth_grade_bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/light_texts_stroke"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_grade_bottom_sheet_delete" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

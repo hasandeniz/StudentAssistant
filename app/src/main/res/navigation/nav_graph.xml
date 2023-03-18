@@ -20,9 +20,16 @@
         tools:layout="@layout/fragment_classroom" />
     <fragment
         android:id="@+id/gradesFragment"
-        android:name="com.hasandeniz.studentassistant.grades.ui.GradesFragment"
+        android:name="com.hasandeniz.studentassistant.grades.base.ui.view.GradesFragment"
         android:label="@string/grades"
-        tools:layout="@layout/fragment_grades" />
+        tools:layout="@layout/fragment_grades" >
+        <action
+            android:id="@+id/action_gradesFragment_to_addGradeFragment"
+            app:destination="@id/addGradeFragment" />
+        <action
+            android:id="@+id/action_gradesFragment_to_offlineCourseDetailsFragment"
+            app:destination="@id/offlineCourseDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/offlineCoursesFragment"
         android:name="com.hasandeniz.studentassistant.offlineCourses.base.ui.view.OfflineCoursesFragment"
@@ -31,6 +38,9 @@
         <action
             android:id="@+id/action_offlineCoursesFragment_to_addOfflineCourseFragment"
             app:destination="@id/addOfflineCourseFragment" />
+        <action
+            android:id="@+id/action_offlineCoursesFragment_to_offlineCourseDetailsFragment"
+            app:destination="@id/offlineCourseDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/timetableFragment"
@@ -39,7 +49,41 @@
         tools:layout="@layout/fragment_timetable" />
     <fragment
         android:id="@+id/addOfflineCourseFragment"
-        android:name="com.hasandeniz.studentassistant.offlineCourses.addCourse.ui.view.AddOfflineCourseFragment"
-        android:label=" "
+        android:name="com.hasandeniz.studentassistant.offlineCourses.addCourse.view.AddOfflineCourseFragment"
+        android:label="@string/add_course"
         tools:layout="@layout/fragment_add_offline_course" />
+    <fragment
+        android:id="@+id/offlineCourseDetailsFragment"
+        android:name="com.hasandeniz.studentassistant.offlineCourses.courseDetails.view.OfflineCourseDetailsFragment"
+        android:label="{courseName}"
+        tools:layout="@layout/fragment_offline_course_details" >
+        <argument
+            android:name="courseUuid"
+            app:argType="integer" />
+        <argument
+            android:name="courseName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_offlineCourseDetailsFragment_to_gradesFragment"
+            app:destination="@id/gradesFragment" />
+        <action
+            android:id="@+id/action_offlineCourseDetailsFragment_to_editOfflineCourseFragment"
+            app:destination="@id/editOfflineCourseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addGradeFragment"
+        android:name="com.hasandeniz.studentassistant.grades.addGrade.view.AddGradeFragment"
+        android:label="@string/add_grade"
+        tools:layout="@layout/fragment_add_grade" />
+    <fragment
+        android:id="@+id/editOfflineCourseFragment"
+        android:name="com.hasandeniz.studentassistant.offlineCourses.editCourse.view.EditOfflineCourseFragment"
+        android:label="@string/edit_course">
+        <argument
+            android:name="offlineCourse"
+            app:argType="com.hasandeniz.studentassistant.offlineCourses.base.data.model.OfflineCourse" />
+        <action
+            android:id="@+id/action_editOfflineCourseFragment_to_offlineCourseDetailsFragment2"
+            app:destination="@id/offlineCourseDetailsFragment" />
+    </fragment>
 </navigation>

@@ -8,9 +8,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Select Day of the Week"
-        android:textAppearance="?attr/textAppearanceHeadline6"
-        android:textStyle="bold"
-        android:padding="16dp"/>
+        android:textSize="18sp"
+        android:textAppearance="@style/LightMainTitle"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"/>
 
     <RadioGroup
         android:id="@+id/day_group"
