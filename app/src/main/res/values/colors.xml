@@ -7,12 +7,74 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="course_color_1">#B90005</color>
+    <color name="course_color_1_1">#F44236</color>
+    <color name="course_color_1_2">#FF7A5B</color>
+    <color name="course_color_2">#AF0039</color>
+    <color name="course_color_2_1">#EA1E63</color>
+    <color name="course_color_2_2">#FF6090</color>
+    <color name="course_color_3">#6A0080</color>
+    <color name="course_color_3_1">#9C28B1</color>
+    <color name="course_color_3_2">#D05CE3</color>
+    <color name="course_color_4">#320C86</color>
+    <color name="course_color_4_1">#673BB7</color>
+    <color name="course_color_4_2">#9A67EA</color>
+    <color name="course_color_5">#002983</color>
+    <color name="course_color_5_1">#3F51B5</color>
+    <color name="course_color_5_2">#757DE8</color>
+    <color name="course_color_6">#006AC0</color>
+    <color name="course_color_6_1">#2196F3</color>
+    <color name="course_color_6_2">#6DC6FE</color>
+    <color name="course_color_7">#007BC1</color>
+    <color name="course_color_7_1">#03A9F5</color>
+    <color name="course_color_7_2">#66DAFF</color>
+    <color name="course_color_8">#008BA2</color>
+    <color name="course_color_8_1">#00BCD5</color>
+    <color name="course_color_8_2">#62EFFF</color>
+    <color name="course_color_9">#00685A</color>
+    <color name="course_color_9_1">#009788</color>
+    <color name="course_color_9_2">#52C7B7</color>
+    <color name="course_color_10">#087F23</color>
+    <color name="course_color_10_1">#4CB050</color>
+    <color name="course_color_10_2">#80E27F</color>
+    <color name="course_color_11">#5A9215</color>
+    <color name="course_color_11_1">#8BC24A</color>
+    <color name="course_color_11_2">#BEF679</color>
+    <color name="course_color_12">#99AB01</color>
+    <color name="course_color_12_1">#CDDC39</color>
+    <color name="course_color_12_2">#FFFF6D</color>
+
+    <color name="course_color_13">#C89100</color>
+    <color name="course_color_13_1">#FEC107</color>
+    <color name="course_color_13_2">#FFF34F</color>
+
+    <color name="course_color_14">#C66901</color>
+    <color name="course_color_14_1">#FF9700</color>
+    <color name="course_color_14_2">#FFC847</color>
+
+    <color name="course_color_15">#C41C01</color>
+    <color name="course_color_15_1">#FE5722</color>
+    <color name="course_color_15_2">#FE8A4F</color>
+
+    <color name="course_color_16">#4A2C21</color>
+    <color name="course_color_16_1">#795547</color>
+    <color name="course_color_16_2">#A98273</color>
+
+    <color name="course_color_17">#707070</color>
+    <color name="course_color_17_1">#9E9E9E</color>
+    <color name="course_color_17_2">#CFCFCF</color>
+
+    <color name="course_color_18">#34525D</color>
+    <color name="course_color_18_1">#607D8B</color>
+    <color name="course_color_18_2">#8FACBC</color>
+
 
     <color name="black_alpha_40">#66000000</color>
     <color name="selected_course_color">#131e5a</color>
     <color name="classroom_green">#25A667</color>
 
     <color name="light_backgrounds_closest_event_background">#44599d</color>
+
     <color name="light_backgrounds_main_background">#f5f7fb</color>
     <color name="light_backgrounds_event_background">#e8ebf5</color>
     <color name="light_backgrounds_course_background">#ffffff</color>
@@ -26,14 +88,16 @@
     <color name="light_texts_view_more">#4a80f0</color>
     <color name="light_texts_content">#7688a4</color>
     <color name="light_texts_lighter_content_on_blue">#b4bacd</color>
-    <color name="light_base_pink">#bc2b76</color>
     <color name="light_texts_stroke">#e8e8e8</color>
+
+    <color name="light_base_pink">#bc2b76</color>
     <color name="light_base_blue">#0085ff</color>
     <color name="light_base_default">#27856a</color>
     <color name="light_base_turquoise">#1bb296</color>
     <color name="light_base_green">#00ba34</color>
     <color name="light_base_orange">#f98600</color>
     <color name="light_base_yellow">#e5aa35</color>
+
     <color name="light_grades_second_highest_grade">#8bc24a</color>
     <color name="light_grades_highest_grade">#4cb050</color>
     <color name="light_grades_third_highest_grade">#fec107</color>
@@ -54,6 +118,7 @@
     <color name="dark_grades_highest_grade">#3c8b3d</color>
     <color name="dark_grades_third_highest_grade">#daaf2b</color>
     <color name="dark_grades_low_grade">#d99026</color>
+
     <color name="dark_base_blue">#218cdb</color>
     <color name="dark_base_red">#e3230d</color>
     <color name="dark_base_yel_iow">#d9a821</color>
@@ -61,6 +126,7 @@
     <color name="dark_base_green">#009688</color>
     <color name="dark_base_orange">#ff6321</color>
     <color name="dark_base_purple">#8c67ac</color>
+
     <color name="classroom_text">#5F6267</color>
     <color name="classroom_button">#1A73E9</color>
     <color name="delete_red">#E63933</color>

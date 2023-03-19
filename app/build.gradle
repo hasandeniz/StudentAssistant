@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace 'com.hasandeniz.studentassistant'
+    namespace 'com.hasandeniz.studentassistant2'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.hasandeniz.studentassistant"
+        applicationId "com.hasandeniz.studentassistant2"
         minSdk 24
         targetSdk 32
         versionCode 1
@@ -70,7 +70,7 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.45"
     kapt "com.google.dagger:hilt-compiler:2.45"
 
-    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.google.code.gson:gson:2.9.0'
 
 
     //lisanslılar

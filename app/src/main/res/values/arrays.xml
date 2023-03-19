@@ -9,4 +9,61 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <array name="course_colors">
+        <item>@color/course_color_1</item>
+        <item>@color/course_color_1_1</item>
+        <item>@color/course_color_1_2</item>
+        <item>@color/course_color_2</item>
+        <item>@color/course_color_2_1</item>
+        <item>@color/course_color_2_2</item>
+        <item>@color/course_color_3</item>
+        <item>@color/course_color_3_1</item>
+        <item>@color/course_color_3_2</item>
+        <item>@color/course_color_4</item>
+        <item>@color/course_color_4_1</item>
+        <item>@color/course_color_4_2</item>
+        <item>@color/course_color_5</item>
+        <item>@color/course_color_5_1</item>
+        <item>@color/course_color_5_2</item>
+        <item>@color/course_color_6</item>
+        <item>@color/course_color_6_1</item>
+        <item>@color/course_color_6_2</item>
+        <item>@color/course_color_7</item>
+        <item>@color/course_color_7_1</item>
+        <item>@color/course_color_7_2</item>
+        <item>@color/course_color_8</item>
+        <item>@color/course_color_8_1</item>
+        <item>@color/course_color_8_2</item>
+        <item>@color/course_color_9</item>
+        <item>@color/course_color_9_1</item>
+        <item>@color/course_color_9_2</item>
+        <item>@color/course_color_10</item>
+        <item>@color/course_color_10_1</item>
+        <item>@color/course_color_10_2</item>
+        <item>@color/course_color_11</item>
+        <item>@color/course_color_11_1</item>
+        <item>@color/course_color_11_2</item>
+        <item>@color/course_color_12</item>
+        <item>@color/course_color_12_1</item>
+        <item>@color/course_color_12_2</item>
+        <item>@color/course_color_13</item>
+        <item>@color/course_color_13_1</item>
+        <item>@color/course_color_13_2</item>
+        <item>@color/course_color_14</item>
+        <item>@color/course_color_14_1</item>
+        <item>@color/course_color_14_2</item>
+        <item>@color/course_color_15</item>
+        <item>@color/course_color_15_1</item>
+        <item>@color/course_color_15_2</item>
+        <item>@color/course_color_16</item>
+        <item>@color/course_color_16_1</item>
+        <item>@color/course_color_16_2</item>
+        <item>@color/course_color_17</item>
+        <item>@color/course_color_17_1</item>
+        <item>@color/course_color_17_2</item>
+        <item>@color/course_color_18</item>
+        <item>@color/course_color_18_1</item>
+        <item>@color/course_color_18_2</item>
+    </array>
 </resources>

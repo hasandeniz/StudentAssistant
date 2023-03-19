@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/nav_graph"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/overviewFragment">
     <fragment
         android:id="@+id/overviewFragment"
-        android:name="com.hasandeniz.studentassistant.overview.OverviewFragment"
+        android:name="com.hasandeniz.studentassistant2.overview.OverviewFragment"
         android:label="@string/overview"
         tools:layout="@layout/fragment_overview" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.hasandeniz.studentassistant.settings.SettingsFragment"
+        android:name="com.hasandeniz.studentassistant2.settings.SettingsFragment"
         android:label="@string/settings" />
     <fragment
         android:id="@+id/classroomFragment"
-        android:name="com.hasandeniz.studentassistant.classroom.ui.ClassroomFragment"
+        android:name="com.hasandeniz.studentassistant2.classroom.ui.ClassroomFragment"
         android:label="@string/classroom"
         tools:layout="@layout/fragment_classroom" />
     <fragment
         android:id="@+id/gradesFragment"
-        android:name="com.hasandeniz.studentassistant.grades.base.ui.view.GradesFragment"
+        android:name="com.hasandeniz.studentassistant2.grades.base.ui.view.GradesFragment"
         android:label="@string/grades"
-        tools:layout="@layout/fragment_grades" >
+        tools:layout="@layout/fragment_grades">
         <action
             android:id="@+id/action_gradesFragment_to_addGradeFragment"
             app:destination="@id/addGradeFragment" />
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/offlineCoursesFragment"
-        android:name="com.hasandeniz.studentassistant.offlineCourses.base.ui.view.OfflineCoursesFragment"
+        android:name="com.hasandeniz.studentassistant2.offlineCourses.base.ui.view.OfflineCoursesFragment"
         android:label="@string/courses"
         tools:layout="@layout/fragment_offline_courses">
         <action
@@ -41,22 +41,25 @@
         <action
             android:id="@+id/action_offlineCoursesFragment_to_offlineCourseDetailsFragment"
             app:destination="@id/offlineCourseDetailsFragment" />
+        <action
+            android:id="@+id/action_offlineCoursesFragment_to_editOfflineCourseFragment"
+            app:destination="@id/editOfflineCourseFragment" />
     </fragment>
     <fragment
         android:id="@+id/timetableFragment"
-        android:name="com.hasandeniz.studentassistant.timetable.TimetableFragment"
+        android:name="com.hasandeniz.studentassistant2.timetable.TimetableFragment"
         android:label="@string/timetable"
         tools:layout="@layout/fragment_timetable" />
     <fragment
         android:id="@+id/addOfflineCourseFragment"
-        android:name="com.hasandeniz.studentassistant.offlineCourses.addCourse.view.AddOfflineCourseFragment"
+        android:name="com.hasandeniz.studentassistant2.offlineCourses.addCourse.view.AddOfflineCourseFragment"
         android:label="@string/add_course"
         tools:layout="@layout/fragment_add_offline_course" />
     <fragment
         android:id="@+id/offlineCourseDetailsFragment"
-        android:name="com.hasandeniz.studentassistant.offlineCourses.courseDetails.view.OfflineCourseDetailsFragment"
+        android:name="com.hasandeniz.studentassistant2.offlineCourses.courseDetails.view.OfflineCourseDetailsFragment"
         android:label="{courseName}"
-        tools:layout="@layout/fragment_offline_course_details" >
+        tools:layout="@layout/fragment_offline_course_details">
         <argument
             android:name="courseUuid"
             app:argType="integer" />
@@ -72,16 +75,16 @@
     </fragment>
     <fragment
         android:id="@+id/addGradeFragment"
-        android:name="com.hasandeniz.studentassistant.grades.addGrade.view.AddGradeFragment"
+        android:name="com.hasandeniz.studentassistant2.grades.addGrade.view.AddGradeFragment"
         android:label="@string/add_grade"
         tools:layout="@layout/fragment_add_grade" />
     <fragment
         android:id="@+id/editOfflineCourseFragment"
-        android:name="com.hasandeniz.studentassistant.offlineCourses.editCourse.view.EditOfflineCourseFragment"
+        android:name="com.hasandeniz.studentassistant2.offlineCourses.editCourse.view.EditOfflineCourseFragment"
         android:label="@string/edit_course">
         <argument
             android:name="offlineCourse"
-            app:argType="com.hasandeniz.studentassistant.offlineCourses.base.data.model.OfflineCourse" />
+            app:argType="com.hasandeniz.studentassistant2.offlineCourses.base.data.model.OfflineCourse" />
         <action
             android:id="@+id/action_editOfflineCourseFragment_to_offlineCourseDetailsFragment2"
             app:destination="@id/offlineCourseDetailsFragment" />
