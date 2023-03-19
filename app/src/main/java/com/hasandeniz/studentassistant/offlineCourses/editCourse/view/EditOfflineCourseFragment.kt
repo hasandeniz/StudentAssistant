@@ -1,14 +1,13 @@
 package com.hasandeniz.studentassistant.offlineCourses.editCourse.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavOptions
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.github.dhaval2404.colorpicker.MaterialColorPickerDialog
@@ -18,10 +17,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.hasandeniz.studentassistant.R
 import com.hasandeniz.studentassistant.databinding.DaysBottomSheetDialogBinding
 import com.hasandeniz.studentassistant.databinding.FragmentAddOfflineCourseBinding
-import com.hasandeniz.studentassistant.offlineCourses.addCourse.viewModel.AddOfflineCourseViewModel
 import com.hasandeniz.studentassistant.offlineCourses.base.data.model.OfflineCourse
-import com.hasandeniz.studentassistant.offlineCourses.courseDetails.view.OfflineCourseDetailsFragment
-import com.hasandeniz.studentassistant.offlineCourses.courseDetails.view.OfflineCourseDetailsFragmentArgs
 import com.hasandeniz.studentassistant.offlineCourses.editCourse.viewModel.EditOfflineCourseViewModel
 import com.hasandeniz.studentassistant.offlineCourses.util.SharedFunctions
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,8 +33,7 @@ class EditOfflineCourseFragment : Fragment() {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAddOfflineCourseBinding.inflate(inflater, container, false)
         offlineCourse = args.offlineCourse
@@ -49,14 +44,13 @@ class EditOfflineCourseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         prepareUi()
-        val navController = findNavController()
 
         binding.btnCreateOfflineCourseAdd.setOnClickListener {
             updateOfflineCourse()
-            Toast.makeText(requireContext(), offlineCourse.courseName, Toast.LENGTH_SHORT).show()
         }
 
         binding.btnCreateOfflineCourseBack.setOnClickListener {
+            val navController = findNavController()
             navController.navigateUp()
         }
 
@@ -68,19 +62,19 @@ class EditOfflineCourseFragment : Fragment() {
 
         SharedFunctions.handleEditTextOnClicks(binding, daysBottomSheet, requireContext())
 
-        binding.apply {
 
-            btnPickCourseColor.setOnClickListener {
-                MaterialColorPickerDialog.Builder(requireActivity()).setColorSwatch(ColorSwatch._300)
-                    .setDefaultColor(R.color.dark_base_blue).setColorListener(object : ColorListener {
-                        override fun onColorSelected(color: Int, colorHex: String) {
-                            btnPickCourseColor.setColorFilter(color)
-                            selectedColor = color
-                        }
-                    }).showBottomSheet(childFragmentManager)
 
-            }
+        binding.ivPickCourseColor.setOnClickListener {
+            MaterialColorPickerDialog.Builder(requireActivity()).setColorSwatch(ColorSwatch._300)
+                .setDefaultColor(R.color.dark_base_blue).setColorListener(object : ColorListener {
+                    override fun onColorSelected(color: Int, colorHex: String) {
+                        binding.ivPickCourseColor.setColorFilter(color)
+                        selectedColor = color
+                    }
+                }).showBottomSheet(childFragmentManager)
+
         }
+
 
     }
 
@@ -100,8 +94,7 @@ class EditOfflineCourseFragment : Fragment() {
             viewModel.updateOfflineCourse(course)
             val action =
                 EditOfflineCourseFragmentDirections.actionEditOfflineCourseFragmentToOfflineCourseDetailsFragment2(
-                    course.uuid,
-                    course.courseName
+                    course.uuid, course.courseName
                 )
             val options = NavOptions.Builder().setPopUpTo(R.id.offlineCoursesFragment, false).build()
             findNavController().navigate(action, options)
@@ -111,13 +104,14 @@ class EditOfflineCourseFragment : Fragment() {
     }
 
     private fun prepareUi() {
+        selectedColor = offlineCourse.courseColor
         binding.etCourseName.setText(offlineCourse.courseName)
         binding.etTeacherName.setText(offlineCourse.teacherName)
         binding.etRoom.setText(offlineCourse.courseRoom)
         binding.etDate.setText(offlineCourse.courseDay)
         binding.etStartTime.setText(offlineCourse.courseStartTime)
         binding.etFinishTime.setText(offlineCourse.courseFinishTime)
-        binding.btnPickCourseColor.setColorFilter(offlineCourse.courseColor)
+        binding.ivPickCourseColor.setColorFilter(offlineCourse.courseColor)
     }
 
     override fun onDestroyView() {

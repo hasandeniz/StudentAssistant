@@ -47,5 +47,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        android:focusable="true" />
+        android:focusable="true"
+        android:contentDescription="@string/add_course" />
 </androidx.constraintlayout.widget.ConstraintLayout>

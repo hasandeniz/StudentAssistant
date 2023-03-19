@@ -17,12 +17,13 @@
         android:imeOptions="actionNext"
         android:inputType="textCapWords"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_pick_course_color"
+        app:layout_constraintEnd_toStartOf="@+id/iv_pick_course_color"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
 
     <ImageView
-        android:id="@+id/btn_pick_course_color"
+        android:id="@+id/iv_pick_course_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -31,7 +32,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/et_course_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/et_course_name"
-        android:focusable="true" />
+        android:focusable="true"
+        android:contentDescription="@string/icon_for_changing_course_color" />
 
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
@@ -51,7 +53,8 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_course_name" />
+        app:layout_constraintTop_toBottomOf="@+id/et_course_name"
+        android:autofillHints="name" />
 
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
@@ -72,7 +75,8 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_teacher_name" />
+        app:layout_constraintTop_toBottomOf="@+id/et_teacher_name"
+        android:autofillHints="" />
 
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/view8"
@@ -106,7 +110,9 @@
         android:textColorHint="@color/light_texts_main_titles"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view9" />
+        app:layout_constraintTop_toBottomOf="@+id/view9"
+        android:autofillHints=""
+        android:inputType="date" />
 
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
@@ -131,7 +137,9 @@
         android:textColorHint="@color/light_texts_main_titles"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_date" />
+        app:layout_constraintTop_toBottomOf="@+id/et_date"
+        android:autofillHints=""
+        android:inputType="none" />
 
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
@@ -157,7 +165,9 @@
         android:textColorHint="@color/light_texts_main_titles"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_start_time" />
+        app:layout_constraintTop_toBottomOf="@+id/et_start_time"
+        android:autofillHints=""
+        android:inputType="none" />
 
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/view4"
@@ -183,8 +193,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.88"
-        app:strokeColor="@color/light_backgrounds_closest_event_background">
-    </com.google.android.material.button.MaterialButton>
+        app:strokeColor="@color/light_backgrounds_closest_event_background" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_create_offline_course_add"

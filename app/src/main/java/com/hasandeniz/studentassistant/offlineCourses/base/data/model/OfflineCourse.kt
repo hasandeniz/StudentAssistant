@@ -3,7 +3,6 @@ package com.hasandeniz.studentassistant.offlineCourses.base.data.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.hasandeniz.studentassistant.grades.base.data.model.Grade
 import java.io.Serializable
 
 @Entity(tableName = "offline_course_table")

@@ -4,21 +4,14 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.imageview.ShapeableImageView
 import com.hasandeniz.studentassistant.R
 import com.hasandeniz.studentassistant.databinding.ItemGradeBinding
 import com.hasandeniz.studentassistant.databinding.SectionHeaderBinding
 import com.hasandeniz.studentassistant.grades.base.data.model.Grade
 import com.hasandeniz.studentassistant.grades.base.ui.view.GradesFragmentDirections
-import com.hasandeniz.studentassistant.offlineCourses.base.ui.view.OfflineCoursesFragmentDirections
 import io.github.luizgrp.sectionedrecyclerviewadapter.Section
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters
 
@@ -56,12 +49,6 @@ class GradeAdapter(
     inner class GradeHeaderViewHolder(private val binding: SectionHeaderBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.btnMore.setOnClickListener {
-                val unwrappedDrawable = AppCompatResources.getDrawable(
-                    binding.root.context,
-                    R.drawable.indicator_background
-                )
-                val wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable!!)
-                wrappedDrawable.setTint(selectedCourseColor)
                 val action = GradesFragmentDirections.actionGradesFragmentToOfflineCourseDetailsFragment(
                     selectedCourseId,
                     selectedCourseName,

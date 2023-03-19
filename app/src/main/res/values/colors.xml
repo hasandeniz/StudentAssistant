@@ -13,7 +13,7 @@
     <color name="classroom_green">#25A667</color>
 
     <color name="light_backgrounds_closest_event_background">#44599d</color>
-    <color name="light_backgrounds_main_background">#f8fafb</color>
+    <color name="light_backgrounds_main_background">#f5f7fb</color>
     <color name="light_backgrounds_event_background">#e8ebf5</color>
     <color name="light_backgrounds_course_background">#ffffff</color>
     <color name="light_backgrounds_floating_action_button">#44599D</color>
@@ -29,7 +29,7 @@
     <color name="light_base_pink">#bc2b76</color>
     <color name="light_texts_stroke">#e8e8e8</color>
     <color name="light_base_blue">#0085ff</color>
-    <color name="light_base_purple">#27856a</color>
+    <color name="light_base_default">#27856a</color>
     <color name="light_base_turquoise">#1bb296</color>
     <color name="light_base_green">#00ba34</color>
     <color name="light_base_orange">#f98600</color>
@@ -63,4 +63,5 @@
     <color name="dark_base_purple">#8c67ac</color>
     <color name="classroom_text">#5F6267</color>
     <color name="classroom_button">#1A73E9</color>
+    <color name="delete_red">#E63933</color>
 </resources>

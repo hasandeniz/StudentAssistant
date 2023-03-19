@@ -125,4 +125,14 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="edit_course">Edit Course</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="icon_for_changing_course_color">Icon for changing course color.</string>
+    <string name="no_grade_added_illustration">No Grade Added Illustration</string>
+    <string name="no_course_added_illustration">No Course Added Illustration</string>
 </resources>

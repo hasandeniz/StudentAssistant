@@ -13,7 +13,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.hasandeniz.studentassistant.databinding.FragmentAddGradeBinding
 import com.hasandeniz.studentassistant.grades.addGrade.viewModel.AddGradeViewModel
 import com.hasandeniz.studentassistant.grades.base.data.model.Grade
-import com.hasandeniz.studentassistant.grades.base.ui.viewModel.GradesViewModel
 import com.hasandeniz.studentassistant.offlineCourses.base.data.model.OfflineCourse
 import dagger.hilt.android.AndroidEntryPoint
 

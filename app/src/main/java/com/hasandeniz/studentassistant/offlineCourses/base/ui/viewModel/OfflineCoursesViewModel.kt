@@ -10,10 +10,7 @@ import javax.inject.Inject
 @HiltViewModel
 class OfflineCoursesViewModel @Inject constructor(repository: OfflineCourseRepository): ViewModel()  {
 
-    val allOfflineCourses : LiveData<List<OfflineCourse>>
-    init {
-        repository.getAllOfflineCourses()
-        allOfflineCourses = repository.getAllOfflineCourses()
-    }
+    val allOfflineCourses : LiveData<List<OfflineCourse>> = repository.getAllOfflineCourses()
+
 
 }

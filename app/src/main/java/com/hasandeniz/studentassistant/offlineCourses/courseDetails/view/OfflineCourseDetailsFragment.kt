@@ -35,7 +35,6 @@ class OfflineCourseDetailsFragment : Fragment() {
     private val viewModel by viewModels<OfflineCourseDetailsViewModel>()
     private val adapter = OfflineCourseDetailsGradeAdapter()
     private lateinit var average: String
-    private var courseColor = Color.BLUE
     private var objective = -1
 
 
@@ -143,7 +142,6 @@ class OfflineCourseDetailsFragment : Fragment() {
     private fun observeLiveData() {
         viewModel.offlineCourseLiveData.observe(viewLifecycleOwner) { course ->
 
-
             /*val recentlyAccessedCourse =
                 RecentlyAccessedCourse(
                     course.courseName,
@@ -157,6 +155,12 @@ class OfflineCourseDetailsFragment : Fragment() {
             viewModel.storeRecentlyAccessedCourse(recentlyAccessedCourse, course.uuid)*/
 
             binding.apply {
+
+
+                ivCourseDetailsIndicator.setBackgroundColor(course.courseColor)
+                ivCourseDetailsGraphBackground.setBackgroundColor(course.courseColor)
+                ivGradesBackground.setBackgroundColor(course.courseColor)
+
                 linearProgressIndicator.trackColor = adjustAlpha(course.courseColor)
                 linearProgressIndicator.setIndicatorColor(course.courseColor)
 

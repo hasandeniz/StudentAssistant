@@ -1,14 +1,10 @@
 package com.hasandeniz.studentassistant.offlineCourses.addCourse.view
 
-import android.app.TimePickerDialog
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
-import android.view.*
-import android.widget.RadioButton
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.view.MenuHost
-import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -16,7 +12,6 @@ import com.github.dhaval2404.colorpicker.MaterialColorPickerDialog
 import com.github.dhaval2404.colorpicker.listener.ColorListener
 import com.github.dhaval2404.colorpicker.model.ColorSwatch
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.button.MaterialButton
 import com.hasandeniz.studentassistant.R
 import com.hasandeniz.studentassistant.databinding.DaysBottomSheetDialogBinding
 import com.hasandeniz.studentassistant.databinding.FragmentAddOfflineCourseBinding
@@ -24,8 +19,6 @@ import com.hasandeniz.studentassistant.offlineCourses.addCourse.viewModel.AddOff
 import com.hasandeniz.studentassistant.offlineCourses.base.data.model.OfflineCourse
 import com.hasandeniz.studentassistant.offlineCourses.util.SharedFunctions
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.SimpleDateFormat
-import java.util.*
 
 @AndroidEntryPoint
 class AddOfflineCourseFragment : Fragment() {
@@ -67,24 +60,23 @@ class AddOfflineCourseFragment : Fragment() {
         SharedFunctions.handleEditTextOnClicks(binding, daysBottomSheet, requireContext())
 
 
-        binding.apply {
-            btnPickCourseColor.setOnClickListener {
-                MaterialColorPickerDialog.Builder(requireActivity()).setColorSwatch(ColorSwatch._300)
-                    .setDefaultColor(R.color.dark_base_blue).setColorListener(object : ColorListener {
-                        override fun onColorSelected(color: Int, colorHex: String) {
-                            btnPickCourseColor.setColorFilter(color)
-                            selectedColor = color
-                        }
-                    }).showBottomSheet(childFragmentManager)
+        binding.ivPickCourseColor.setOnClickListener {
+            MaterialColorPickerDialog.Builder(requireActivity()).setColorSwatch(ColorSwatch._300)
+                .setDefaultColor(R.color.dark_base_blue).setColorListener(object : ColorListener {
+                    override fun onColorSelected(color: Int, colorHex: String) {
+                        binding.ivPickCourseColor.setColorFilter(color)
+                        selectedColor = color
+                    }
+                }).showBottomSheet(childFragmentManager)
 
-            }
         }
+
     }
 
 
     private fun insertOfflineCourse() {
         if (SharedFunctions.checkSaveState(binding)) {
-            if (selectedColor == 0) selectedColor = R.color.light_backgrounds_closest_event_background
+            if (selectedColor == 0) selectedColor = R.color.light_base_default
             val course = OfflineCourse(
                 courseName = binding.etCourseName.text.toString(),
                 teacherName = binding.etTeacherName.text.toString(),

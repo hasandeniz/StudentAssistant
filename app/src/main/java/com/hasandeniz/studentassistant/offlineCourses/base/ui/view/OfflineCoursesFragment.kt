@@ -4,13 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.hasandeniz.studentassistant.R
 import com.hasandeniz.studentassistant.databinding.FragmentOfflineCoursesBinding
 import com.hasandeniz.studentassistant.offlineCourses.base.data.model.OfflineCourse
@@ -61,9 +57,6 @@ class OfflineCoursesFragment : Fragment(), OfflineCoursesAdapter.OnItemClickList
     }
 
     override fun onItemClick(offlineCourse: OfflineCourse) {
-        val unWrappedDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.indicator_background)
-        val wrappedDrawable = DrawableCompat.wrap(unWrappedDrawable!!)
-        DrawableCompat.setTint(wrappedDrawable, offlineCourse.courseColor)
         val action = OfflineCoursesFragmentDirections.actionOfflineCoursesFragmentToOfflineCourseDetailsFragment(
             offlineCourse.uuid,
             offlineCourse.courseName

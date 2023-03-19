@@ -7,4 +7,4 @@
     android:insetTop="8dp"
     android:insetBottom="8dp"
     android:insetRight="20dp"
-    android:text="Save" />
+    android:text="@string/save" />

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -14,7 +13,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.hasandeniz.studentassistant.R
 import com.hasandeniz.studentassistant.databinding.BottomSheetGradesBinding
 import com.hasandeniz.studentassistant.databinding.FragmentGradesBinding
-import com.hasandeniz.studentassistant.databinding.ItemGradeBinding
 import com.hasandeniz.studentassistant.grades.base.data.model.Grade
 import com.hasandeniz.studentassistant.grades.base.ui.adapter.GradeAdapter
 import com.hasandeniz.studentassistant.grades.base.ui.viewModel.GradesViewModel

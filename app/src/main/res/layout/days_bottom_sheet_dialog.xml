@@ -4,14 +4,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Select Day of the Week"
-        android:textSize="18sp"
-        android:textAppearance="@style/LightMainTitle"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp"/>
 
     <RadioGroup
         android:id="@+id/day_group"
@@ -19,49 +11,71 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="8dp"
-        android:paddingStart="16dp">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <RadioButton
             android:id="@+id/monday"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Monday"/>
+            android:text="@string/monday" />
 
         <RadioButton
             android:id="@+id/tuesday"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tuesday"/>
+            android:text="@string/tuesday" />
 
         <RadioButton
             android:id="@+id/wednesday"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wednesday"/>
+            android:text="@string/wednesday" />
 
         <RadioButton
             android:id="@+id/thursday"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thursday"/>
+            android:text="@string/thursday" />
 
         <RadioButton
             android:id="@+id/friday"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Friday"/>
+            android:text="@string/friday" />
 
         <RadioButton
             android:id="@+id/saturday"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Saturday"/>
+            android:text="@string/saturday" />
 
         <RadioButton
             android:id="@+id/sunday"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sunday"/>
+            android:text="@string/sunday" />
 
     </RadioGroup>
 
@@ -72,18 +86,20 @@
         android:gravity="end">
 
         <com.google.android.material.button.MaterialButton
+            android:textSize="15sp"
             android:id="@+id/cancel_button"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel"/>
+            android:text="@string/cancel" />
 
         <com.google.android.material.button.MaterialButton
+            android:textSize="15sp"
             android:id="@+id/save_button"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"/>
+            android:text="@string/save" />
 
     </LinearLayout>
 
