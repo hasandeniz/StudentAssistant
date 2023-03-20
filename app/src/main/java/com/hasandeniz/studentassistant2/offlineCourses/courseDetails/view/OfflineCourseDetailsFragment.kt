@@ -15,12 +15,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.hasandeniz.studentassistant2.R
-import com.hasandeniz.studentassistant2.databinding.BottomSheetDeleteCourseBinding
+import com.hasandeniz.studentassistant2.databinding.BottomSheetDeleteBinding
 import com.hasandeniz.studentassistant2.databinding.BottomSheetSetObjectiveBinding
 import com.hasandeniz.studentassistant2.databinding.FragmentOfflineCourseDetailsBinding
 import com.hasandeniz.studentassistant2.grades.base.data.model.Grade
 import com.hasandeniz.studentassistant2.offlineCourses.courseDetails.adapter.OfflineCourseDetailsGradeAdapter
 import com.hasandeniz.studentassistant2.offlineCourses.courseDetails.viewModel.OfflineCourseDetailsViewModel
+import com.hasandeniz.studentassistant2.offlineCourses.util.OfflineCourseUtil
+import com.hasandeniz.studentassistant2.overview.RecentlyAccessedCourses
 import dagger.hilt.android.AndroidEntryPoint
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -45,12 +47,14 @@ class OfflineCourseDetailsFragment : Fragment() {
         _binding = FragmentOfflineCourseDetailsBinding.inflate(inflater, container, false)
         courseUuid = args.courseUuid
         viewModel.getOfflineCourse(courseUuid)
-        viewModel.getOfflineCourseList(courseUuid)
+        viewModel.getOfflineCourseGrades(courseUuid)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         val menuHost = requireActivity() as MenuHost
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -71,26 +75,24 @@ class OfflineCourseDetailsFragment : Fragment() {
                     }
 
                     R.id.menu_delete -> {
-                        val daysBottomSheet = BottomSheetDialog(requireContext())
-                        val bottomSheetBinding = BottomSheetDeleteCourseBinding.inflate(layoutInflater)
-                        daysBottomSheet.setContentView(bottomSheetBinding.root)
+                        val offlineCourse = viewModel.offlineCourseLiveData.value ?: return false
+                        val deleteBottomSheet = BottomSheetDialog(requireContext())
+                        val bottomSheetBinding = BottomSheetDeleteBinding.inflate(layoutInflater)
+                        deleteBottomSheet.setContentView(bottomSheetBinding.root)
+                        bottomSheetBinding.tvTitle.text = getString(R.string.delete_course)
+                        bottomSheetBinding.tvMessage.text = getString(R.string.delete_course_message)
                         bottomSheetBinding.btnCancel.setOnClickListener {
-                            daysBottomSheet.dismiss()
+                            deleteBottomSheet.dismiss()
                         }
                         bottomSheetBinding.btnDelete.setOnClickListener {
-                            val sharedPref = requireActivity().getPreferences(MODE_PRIVATE)
-                            if (sharedPref!!.contains(courseUuid.toString())) {
-                                sharedPref.edit {
-                                    remove(courseUuid.toString())
-                                }
-                            }
-                            daysBottomSheet.dismiss()
+                            OfflineCourseUtil.handleSharedPrefCleaning(offlineCourse, requireActivity())
+                            RecentlyAccessedCourses.deleteRecentlyAccessedCourse(offlineCourse, requireActivity())
                             viewModel.deleteCourse(courseUuid)
-                            daysBottomSheet.dismiss()
+                            deleteBottomSheet.dismiss()
                             val navController = findNavController()
                             navController.navigateUp()
                         }
-                        daysBottomSheet.show()
+                        deleteBottomSheet.show()
 
                         true
                     }
@@ -165,6 +167,9 @@ class OfflineCourseDetailsFragment : Fragment() {
                 )
 
             viewModel.storeRecentlyAccessedCourse(recentlyAccessedCourse, course.uuid)*/
+
+            RecentlyAccessedCourses.addRecentlyAccessedCourse(course,requireActivity())
+
 
             binding.apply {
 

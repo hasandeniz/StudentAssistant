@@ -10,7 +10,7 @@
 
     <include
         android:id="@+id/grade_empty_state"
-        layout="@layout/grade_empty_state"
+        layout="@layout/empty_state_grade"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"

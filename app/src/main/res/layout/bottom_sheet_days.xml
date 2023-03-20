@@ -1,106 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
 
-    <RadioGroup
-        android:id="@+id/day_group"
+    <TextView
+        android:id="@+id/tv_bottom_sheet_days_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="8dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:text="@string/day_of_week"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="?android:textColorPrimary"
+        android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/monday"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp"
-            android:textSize="16sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/monday" />
-
-        <RadioButton
-            android:id="@+id/tuesday"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp"
-            android:textSize="16sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tuesday" />
-
-        <RadioButton
-            android:id="@+id/wednesday"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp"
-            android:textSize="16sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/wednesday" />
-
-        <RadioButton
-            android:id="@+id/thursday"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp"
-            android:textSize="16sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/thursday" />
-
-        <RadioButton
-            android:id="@+id/friday"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp"
-            android:textSize="16sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/friday" />
-
-        <RadioButton
-            android:id="@+id/saturday"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp"
-            android:textSize="16sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/saturday" />
-
-        <RadioButton
-            android:id="@+id/sunday"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp"
-            android:textSize="16sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sunday" />
-
-    </RadioGroup>
-
-    <LinearLayout
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_monday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="end">
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_marginTop="10dp"
+        android:gravity="start"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="8dp"
+        android:text="@string/monday"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:textSize="15sp"
-            android:id="@+id/cancel_button"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/cancel" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_tuesday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:gravity="start"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="8dp"
+        android:text="@string/tuesday"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:textSize="15sp"
-            android:id="@+id/save_button"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/save" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_wednesday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:gravity="start"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="8dp"
+        android:text="@string/wednesday"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp" />
 
-    </LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_thursday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:gravity="start"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="8dp"
+        android:text="@string/thursday"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_friday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:gravity="start"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="8dp"
+        android:text="@string/friday"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_saturday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:gravity="start"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="8dp"
+        android:text="@string/saturday"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sunday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:gravity="start"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="8dp"
+        android:text="@string/sunday"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp" />
+
 
 </LinearLayout>

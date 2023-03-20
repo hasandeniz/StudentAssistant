@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.hasandeniz.studentassistant2.databinding.BottomSheetSelectCourseNoCourseBinding
 import com.hasandeniz.studentassistant2.databinding.FragmentAddGradeBinding
 import com.hasandeniz.studentassistant2.grades.addGrade.viewModel.AddGradeViewModel
 import com.hasandeniz.studentassistant2.grades.base.data.model.Grade
@@ -28,7 +30,6 @@ class AddGradeFragment : Fragment() {
     private lateinit var selectedGradeType: String
     private lateinit var selectedCourseId: String
 
-    private var selectedCourseColor = 0
     private var addGradeCourses = arrayListOf<String>()
     private var coursesList = listOf<OfflineCourse>()
     private var selectedGradeTypeIndex: Int = 0
@@ -76,8 +77,7 @@ class AddGradeFragment : Fragment() {
                         gradeValue,
                         selectedCourseId.toInt(),
                         gradeWeight,
-                        gradeType,
-                        selectedCourseColor
+                        gradeType
                     )
 
                     viewModel.insertGrade(grade)
@@ -107,14 +107,29 @@ class AddGradeFragment : Fragment() {
                     selectedCourse = coursesList[selectedCourseIndex]
                     selectedCourseId = coursesList[selectedCourseIndex].uuid.toString()
                     binding.etPickCourse.setText(selectedCourseName)
-                    selectedCourseColor = selectedCourse.courseColor
                 }
                 .setNegativeButton("Cancel") { dialog, _ ->
                     dialog.dismiss()
                 }
                 .show()
-        } else
-            Toast.makeText(context, "Please add at least 1 course", Toast.LENGTH_SHORT).show()
+        } else{
+            val coursesBottomSheet = BottomSheetDialog(requireContext())
+            val bottomSheetBinding = BottomSheetSelectCourseNoCourseBinding.inflate(layoutInflater)
+            coursesBottomSheet.setContentView(bottomSheetBinding.root)
+
+            bottomSheetBinding.btnCancel.setOnClickListener {
+                coursesBottomSheet.dismiss()
+            }
+
+            bottomSheetBinding.btnMessage.setOnClickListener {
+                val action = AddGradeFragmentDirections.addGradeToAddOfflineCourse()
+                findNavController().navigate(action)
+                coursesBottomSheet.dismiss()
+            }
+
+            coursesBottomSheet.show()
+        }
+
 
     }
 

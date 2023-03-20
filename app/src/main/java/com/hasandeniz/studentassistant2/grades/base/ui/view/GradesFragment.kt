@@ -12,6 +12,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.hasandeniz.studentassistant2.R
+import com.hasandeniz.studentassistant2.databinding.BottomSheetDeleteBinding
 import com.hasandeniz.studentassistant2.databinding.BottomSheetGradesBinding
 import com.hasandeniz.studentassistant2.databinding.FragmentGradesBinding
 import com.hasandeniz.studentassistant2.grades.base.data.model.Grade
@@ -78,7 +79,8 @@ class GradesFragment : Fragment(), GradeAdapter.ClickListener {
             tvGradeBottomSheetGradeType.text = grade.type
             tvGradeBottomSheetTitle.text = grade.courseName
             tvGradeDetailsGradeGrade.text = grade.grade.toString()
-            tvGradeBottomSheetGradeWeight.text = "${grade.weight} %"
+            val weight = "${grade.weight} %"
+            tvGradeBottomSheetGradeWeight.text = weight
             decideGradeColor(this, grade)
         }
 
@@ -95,22 +97,32 @@ class GradesFragment : Fragment(), GradeAdapter.ClickListener {
         }
 
         bottomSheetBinding.btnGradeBottomSheetDelete.setOnClickListener {
-            viewModel.deleteGradeFromDatabase(grade)
+            dialog.dismiss()
+            val deleteBottomSheet = BottomSheetDialog(requireContext())
+            val bottomSheetDeleteBinding = BottomSheetDeleteBinding.inflate(layoutInflater)
+            deleteBottomSheet.setContentView(bottomSheetDeleteBinding.root)
+            bottomSheetDeleteBinding.tvTitle.text = getString(R.string.delete_grade)
+            bottomSheetDeleteBinding.tvMessage.text = getString(R.string.delete_grade_message)
+            bottomSheetDeleteBinding.btnCancel.setOnClickListener {
+                deleteBottomSheet.dismiss()
+            }
+            bottomSheetDeleteBinding.btnDelete.setOnClickListener {
+                viewModel.deleteGradeFromDatabase(grade)
+                deleteBottomSheet.dismiss()
+                if (adapter.list.isEmpty()) {
+                    val sectionItemsTotal = adapter.sectionItemsTotal
+                    val sectionPosition = sectionedAdapter.getAdapterForSection(adapter).sectionPosition
 
-            if (adapter.list.isEmpty()) {
-                val sectionItemsTotal = adapter.sectionItemsTotal
-                val sectionPosition = sectionedAdapter.getAdapterForSection(adapter).sectionPosition
+                    sectionedAdapter.removeSection(adapter)
 
-                sectionedAdapter.removeSection(adapter)
-
-                if (adapter.state == Section.State.LOADED) {
-                    sectionedAdapter.notifyItemRangeRemoved(
-                        sectionPosition, sectionItemsTotal
-                    )
+                    if (adapter.state == Section.State.LOADED) {
+                        sectionedAdapter.notifyItemRangeRemoved(
+                            sectionPosition, sectionItemsTotal
+                        )
+                    }
                 }
             }
-
-            dialog.dismiss()
+            deleteBottomSheet.show()
         }
     }
 

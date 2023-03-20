@@ -1,25 +1,25 @@
 package com.hasandeniz.studentassistant2.offlineCourses.base.ui.view
 
-import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.hasandeniz.studentassistant2.R
-import com.hasandeniz.studentassistant2.databinding.BottomSheetDeleteCourseBinding
+import com.hasandeniz.studentassistant2.databinding.BottomSheetDeleteBinding
 import com.hasandeniz.studentassistant2.databinding.FragmentOfflineCoursesBinding
 import com.hasandeniz.studentassistant2.databinding.ItemOfflineCourseBinding
 import com.hasandeniz.studentassistant2.offlineCourses.base.data.model.OfflineCourse
 import com.hasandeniz.studentassistant2.offlineCourses.base.ui.adapter.OfflineCoursesAdapter
 import com.hasandeniz.studentassistant2.offlineCourses.base.ui.adapter.RecyclerViewEmptyStateObserver
 import com.hasandeniz.studentassistant2.offlineCourses.base.ui.viewModel.OfflineCoursesViewModel
+import com.hasandeniz.studentassistant2.offlineCourses.util.OfflineCourseUtil
+import com.hasandeniz.studentassistant2.overview.RecentlyAccessedCourses
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -87,25 +87,21 @@ class OfflineCoursesFragment : Fragment(), OfflineCoursesAdapter.OnItemClickList
 
                 R.id.menu_delete -> {
                     popup.dismiss()
-                    val daysBottomSheet = BottomSheetDialog(requireContext())
-                    val bottomSheetBinding = BottomSheetDeleteCourseBinding.inflate(layoutInflater)
-                    daysBottomSheet.setContentView(bottomSheetBinding.root)
+                    val deleteBottomSheet = BottomSheetDialog(requireContext())
+                    val bottomSheetBinding = BottomSheetDeleteBinding.inflate(layoutInflater)
+                    deleteBottomSheet.setContentView(bottomSheetBinding.root)
+                    bottomSheetBinding.tvTitle.text = getString(R.string.delete_course)
+                    bottomSheetBinding.tvMessage.text = getString(R.string.delete_course_message)
                     bottomSheetBinding.btnCancel.setOnClickListener {
-                        daysBottomSheet.dismiss()
+                        deleteBottomSheet.dismiss()
                     }
                     bottomSheetBinding.btnDelete.setOnClickListener {
-                        val sharedPref = requireActivity().getPreferences(MODE_PRIVATE)
-                        if (sharedPref!!.contains(offlineCourse.uuid.toString())) {
-                            sharedPref.edit {
-                                remove(offlineCourse.uuid.toString())
-                            }
-
-                        }
-                        daysBottomSheet.dismiss()
+                        OfflineCourseUtil.handleSharedPrefCleaning(offlineCourse, requireActivity())
+                        RecentlyAccessedCourses.deleteRecentlyAccessedCourse(offlineCourse, requireActivity())
                         viewModel.deleteCourse(offlineCourse.uuid)
-                        daysBottomSheet.dismiss()
+                        deleteBottomSheet.dismiss()
                     }
-                    daysBottomSheet.show()
+                    deleteBottomSheet.show()
 
                 }
 

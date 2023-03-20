@@ -1,0 +1,106 @@
+<com.google.android.material.card.MaterialCardView android:id="@+id/cv_recently_accessed_courses"
+    style="@style/Widget.App.CardView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_recently_accessed_round"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/light_backgrounds_closest_event_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+
+        <ImageView
+            android:id="@+id/iv_recently_accessed_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:contentDescription="@string/your_average"
+            android:src="@drawable/ic_courses"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_recently_accessed_round"
+            app:layout_constraintEnd_toEndOf="@+id/iv_recently_accessed_round"
+            app:layout_constraintStart_toStartOf="@+id/iv_recently_accessed_round"
+            app:layout_constraintTop_toTopOf="@+id/iv_recently_accessed_round"
+            app:tint="@color/dark_texts_main_title" />
+
+        <TextView
+            android:id="@+id/tv_recently_accessed_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/accessed_courses"
+            android:textAppearance="@style/LightTimetableContent"
+            android:textColor="@color/light_texts_main_titles"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_recently_accessed_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/iv_recently_accessed_round"
+            app:layout_constraintTop_toTopOf="@+id/iv_recently_accessed_round" />
+
+        <ImageView
+            android:id="@+id/iv_no_recently_accessed_course_illustration"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:contentDescription="@string/no_recently_accessed_course_illustration"
+            android:src="@drawable/ic_illustration_dreamer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_recently_accessed_icon" />
+
+        <TextView
+            android:id="@+id/tv_no_recently_accessed_course_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/seems_like_you_have_not_created_any_course_yet"
+            android:textAppearance="@style/LightCategoryTitle2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_no_recently_accessed_course_illustration"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/stroke_no_recently_accessed_course"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/light_texts_stroke"
+            app:layout_constraintTop_toBottomOf="@id/tv_no_recently_accessed_course_message" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_no_recently_accessed_course_get_started"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="textStart"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            app:icon="@drawable/ic_arrow_right"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/get_started"
+            android:textAppearance="@style/LightCategoryTitle2"
+            android:textColor="@color/light_texts_text_color_on_white"
+            app:iconPadding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stroke_no_recently_accessed_course" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

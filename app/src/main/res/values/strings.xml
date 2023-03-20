@@ -136,9 +136,13 @@
     <string name="no_grade_added_illustration">No Grade Added Illustration</string>
     <string name="no_course_added_illustration">No Course Added Illustration</string>
     <string name="edit_or_delete_course">Edit or Delete Course</string>
-    <string name="are_you_sure_you_want_to_delete_this_course_this_action_cannot_be_undone">Are you sure you want to delete this course? This action cannot be undone.</string>
+    <string name="delete_course_message">Are you sure you want to delete this course? This action cannot be undone.</string>
     <string name="delete_course">Delete Course</string>
     <string name="edit_grade">Edit Grade</string>
+    <string name="delete_grade">Delete Grade</string>
+    <string name="delete_grade_message">Are you sure you want to delete this grade? This action cannot be undone.</string>
+    <string name="add_new_course">Add new course</string>
+    <string name="day_of_week">Day of week</string>
 
 
     <array name="offline_course_colors_array">

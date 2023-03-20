@@ -27,7 +27,7 @@ class OfflineCourseDetailsViewModel @Inject constructor(
     val gradesLiveData : LiveData<List<Grade>>
             get() = _gradesLiveData
 
-    //Todo: Recently Accessed Courses kısımlarını sonradan ekle
+    //TODO: Recently Accessed Courses kısımlarını sonradan ekle
 
     fun deleteCourse(uuid: Int){
         viewModelScope.launch(Dispatchers.IO) {
@@ -44,7 +44,7 @@ class OfflineCourseDetailsViewModel @Inject constructor(
         }
     }
 
-    fun getOfflineCourseList(courseUuid: Int){
+    fun getOfflineCourseGrades(courseUuid: Int){
         viewModelScope.launch(Dispatchers.IO) {
             val grades = gradeRepository.getGradesOfSection(courseUuid)
             _gradesLiveData.postValue(grades)

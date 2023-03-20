@@ -17,10 +17,10 @@ class OfflineCoursesAdapter (private val itemClickListener: OnItemClickListener,
     }
 
     override fun onBindViewHolder(holder: OfflineCourseViewHolder, position: Int) {
-        val currentOfflineCourse = getItem(position)
+        val offlineCourse = getItem(position)
 
-        if (currentOfflineCourse != null) {
-            holder.bind(currentOfflineCourse)
+        if (offlineCourse != null) {
+            holder.bind(offlineCourse)
         }
     }
 

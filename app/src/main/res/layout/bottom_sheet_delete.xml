@@ -1,23 +1,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
+        android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/delete_course"
+        tools:text="@string/delete_course"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="?android:textColorPrimary"
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/tv_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textSize="16sp"
-        android:text="@string/are_you_sure_you_want_to_delete_this_course_this_action_cannot_be_undone"
+        tools:text="@string/delete_course_message"
         android:textAppearance="?android:textAppearanceSmall"
         android:textColor="?android:textColorPrimary" />
 

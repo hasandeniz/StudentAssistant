@@ -23,9 +23,6 @@ data class Grade(
     @ColumnInfo(name = "gradeType")
     val type:String,
 
-    @ColumnInfo(name = "courseColor")
-    val courseColor:Int,
-
     ): Serializable{
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0

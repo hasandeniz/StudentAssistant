@@ -1,0 +1,74 @@
+<com.google.android.material.card.MaterialCardView android:id="@+id/cv_upcoming_events"
+    style="@style/Widget.App.CardView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_no_upcoming_event_round"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/light_backgrounds_closest_event_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+
+        <ImageView
+            android:id="@+id/ic_no_upcoming_event_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:contentDescription="@string/your_average"
+            android:src="@drawable/ic_graph"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_no_upcoming_event_round"
+            app:layout_constraintEnd_toEndOf="@+id/iv_no_upcoming_event_round"
+            app:layout_constraintStart_toStartOf="@+id/iv_no_upcoming_event_round"
+            app:layout_constraintTop_toTopOf="@+id/iv_no_upcoming_event_round" />
+
+        <TextView
+            android:id="@+id/tv_no_upcoming_event_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/weekly_report"
+            android:textAppearance="@style/LightTimetableContent"
+            android:textColor="@color/light_texts_main_titles"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_no_upcoming_event_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/iv_no_upcoming_event_round"
+            app:layout_constraintTop_toTopOf="@+id/iv_no_upcoming_event_round" />
+
+        <TextView
+            android:id="@+id/tv_no_upcoming_events_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="36dp"
+            android:text="@string/you_have_no_upcoming_events"
+            android:textAppearance="@style/LightCategoryTitle2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_no_upcoming_event_illustration"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_no_upcoming_event_round" />
+
+        <ImageView
+            android:id="@+id/iv_no_upcoming_event_illustration"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="@string/no_upcoming_event_illustration"
+            android:src="@drawable/ic_illustration_hand"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_no_upcoming_event_title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

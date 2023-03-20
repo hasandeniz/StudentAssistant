@@ -1,6 +1,5 @@
 package com.hasandeniz.studentassistant2.grades.base.ui.adapter
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,12 +28,10 @@ class GradeAdapter(
 
     private var selectedCourseId = 0
     private var selectedCourseName = ""
-    private var selectedCourseColor = Color.BLUE
 
     inner class GradeViewHolder(private val binding: ItemGradeBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(grade: Grade, position: Int) {
             selectedCourseId = grade.courseId
-            selectedCourseColor = grade.courseColor
             selectedCourseName = grade.courseName
             binding.tvGradeCourseName.text = grade.courseName
             binding.tvGrade.text = grade.grade.toString()

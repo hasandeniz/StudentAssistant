@@ -10,7 +10,7 @@
 
     <include
         android:id="@+id/offline_course_empty_state"
-        layout="@layout/offline_course_empty_state"
+        layout="@layout/empty_state_offline_course"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"

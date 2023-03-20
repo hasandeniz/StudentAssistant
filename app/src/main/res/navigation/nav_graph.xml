@@ -80,7 +80,11 @@
         android:id="@+id/addGradeFragment"
         android:name="com.hasandeniz.studentassistant2.grades.addGrade.view.AddGradeFragment"
         android:label="@string/add_grade"
-        tools:layout="@layout/fragment_add_grade" />
+        tools:layout="@layout/fragment_add_grade" >
+        <action
+            android:id="@+id/add_grade_to_add_offline_course"
+            app:destination="@id/addOfflineCourseFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editOfflineCourseFragment"
         android:name="com.hasandeniz.studentassistant2.offlineCourses.editCourse.view.EditOfflineCourseFragment"

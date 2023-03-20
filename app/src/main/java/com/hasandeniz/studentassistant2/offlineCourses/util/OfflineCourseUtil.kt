@@ -2,10 +2,13 @@ package com.hasandeniz.studentassistant2.offlineCourses.util
 
 import android.app.TimePickerDialog
 import android.content.Context
-import android.widget.RadioButton
+import androidx.core.content.edit
+import androidx.fragment.app.FragmentActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.button.MaterialButton
 import com.hasandeniz.studentassistant2.databinding.BottomSheetDaysBinding
 import com.hasandeniz.studentassistant2.databinding.FragmentAddOfflineCourseBinding
+import com.hasandeniz.studentassistant2.offlineCourses.base.data.model.OfflineCourse
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -76,17 +79,21 @@ object OfflineCourseUtil {
         bottomSheetBinding: BottomSheetDaysBinding,
         daysBottomSheet: BottomSheetDialog
     ) {
-
-        bottomSheetBinding.saveButton.setOnClickListener {
-            val selectedDay =
-                bottomSheetBinding.dayGroup.findViewById<RadioButton>(bottomSheetBinding.dayGroup.checkedRadioButtonId)?.text.toString()
-            binding.etDate.setText(selectedDay)
-            daysBottomSheet.dismiss()
+        bottomSheetBinding.apply {
+            val buttonArray =
+                listOf(btnMonday, btnTuesday, btnWednesday, btnThursday, btnFriday, btnSaturday, btnSunday)
+            for (button in buttonArray) {
+                button.setOnClickListener {
+                    setEditTextText(button, binding)
+                    daysBottomSheet.dismiss()
+                }
+            }
         }
+    }
 
-        bottomSheetBinding.cancelButton.setOnClickListener {
-            daysBottomSheet.dismiss()
-        }
+    private fun setEditTextText(button: MaterialButton, binding: FragmentAddOfflineCourseBinding) {
+        val selectedDay = button.text.toString()
+        binding.etDate.setText(selectedDay)
 
     }
 
@@ -105,8 +112,15 @@ object OfflineCourseUtil {
         binding.etFinishTime.setOnClickListener {
             showFinishTimePickerDialog(context, binding)
         }
+    }
 
-
+    fun handleSharedPrefCleaning(offlineCourse: OfflineCourse, activity: FragmentActivity){
+        val sharedPref = activity.getPreferences(Context.MODE_PRIVATE)
+        if (sharedPref!!.contains(offlineCourse.uuid.toString())) {
+            sharedPref.edit {
+                remove(offlineCourse.uuid.toString())
+            }
+        }
     }
 
 }
