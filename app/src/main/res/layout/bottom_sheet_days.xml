@@ -19,7 +19,7 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:textSize="16sp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/monday" />
 
@@ -28,7 +28,7 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:textSize="16sp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/tuesday" />
 
@@ -37,7 +37,7 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:textSize="16sp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/wednesday" />
 
@@ -46,7 +46,7 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:textSize="16sp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/thursday" />
 
@@ -55,7 +55,7 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:textSize="16sp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/friday" />
 
@@ -64,7 +64,7 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:textSize="16sp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/saturday" />
 
@@ -73,7 +73,7 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:textSize="16sp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/sunday" />
 

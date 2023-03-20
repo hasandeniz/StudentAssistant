@@ -18,7 +18,7 @@ import com.hasandeniz.studentassistant2.databinding.BottomSheetDaysBinding
 import com.hasandeniz.studentassistant2.databinding.FragmentAddOfflineCourseBinding
 import com.hasandeniz.studentassistant2.offlineCourses.base.data.model.OfflineCourse
 import com.hasandeniz.studentassistant2.offlineCourses.editCourse.viewModel.EditOfflineCourseViewModel
-import com.hasandeniz.studentassistant2.offlineCourses.util.SharedFunctions
+import com.hasandeniz.studentassistant2.offlineCourses.util.OfflineCourseUtil
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -58,9 +58,9 @@ class EditOfflineCourseFragment : Fragment() {
         val bottomSheetBinding = BottomSheetDaysBinding.inflate(layoutInflater)
         daysBottomSheet.setContentView(bottomSheetBinding.root)
 
-        SharedFunctions.handleDaysButtonSheetButtons(binding, bottomSheetBinding, daysBottomSheet)
+        OfflineCourseUtil.handleDaysButtonSheetButtons(binding, bottomSheetBinding, daysBottomSheet)
 
-        SharedFunctions.handleEditTextOnClicks(binding, daysBottomSheet, requireContext())
+        OfflineCourseUtil.handleEditTextOnClicks(binding, daysBottomSheet, requireContext())
 
 
         binding.ivPickCourseColor.setOnClickListener {
@@ -80,7 +80,7 @@ class EditOfflineCourseFragment : Fragment() {
     }
 
     private fun updateOfflineCourse() {
-        if (SharedFunctions.checkSaveState(binding)) {
+        if (OfflineCourseUtil.checkSaveState(binding)) {
             if (selectedColor == 0) selectedColor = R.color.light_backgrounds_closest_event_background
             val course = OfflineCourse(
                 courseName = binding.etCourseName.text.toString(),

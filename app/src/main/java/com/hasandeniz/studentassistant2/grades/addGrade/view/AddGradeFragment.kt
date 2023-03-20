@@ -1,6 +1,5 @@
 package com.hasandeniz.studentassistant2.grades.addGrade.view
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +12,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.hasandeniz.studentassistant2.databinding.FragmentAddGradeBinding
 import com.hasandeniz.studentassistant2.grades.addGrade.viewModel.AddGradeViewModel
 import com.hasandeniz.studentassistant2.grades.base.data.model.Grade
+import com.hasandeniz.studentassistant2.grades.util.GradeUtil
 import com.hasandeniz.studentassistant2.offlineCourses.base.data.model.OfflineCourse
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,7 +28,7 @@ class AddGradeFragment : Fragment() {
     private lateinit var selectedGradeType: String
     private lateinit var selectedCourseId: String
 
-    private var selectedCourseColor = Color.BLUE
+    private var selectedCourseColor = 0
     private var addGradeCourses = arrayListOf<String>()
     private var coursesList = listOf<OfflineCourse>()
     private var selectedGradeTypeIndex: Int = 0
@@ -67,7 +67,7 @@ class AddGradeFragment : Fragment() {
                 navController.navigateUp()
             }
             btnAddGradeAdd.setOnClickListener {
-                if (checkAllFields()) {
+                if (GradeUtil.checkAllFields(binding)) {
                     val gradeValue = etGrade.text.toString().toInt()
                     val gradeWeight = etWeight.text.toString().toInt()
                     val gradeType = etGradeType.text.toString()
@@ -134,22 +134,5 @@ class AddGradeFragment : Fragment() {
             }
             .show()
     }
-
-    private fun checkAllFields(): Boolean {
-        var allFieldsFilled = true
-
-        for (editText in listOf(
-            binding.etGrade,
-            binding.etPickCourse,
-            binding.etGradeType,
-            binding.etWeight
-        )) {
-            if (editText.text.isBlank()) {
-                allFieldsFilled = false
-            }
-        }
-        return allFieldsFilled
-    }
-
 
 }

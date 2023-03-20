@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_gradesFragment_to_offlineCourseDetailsFragment"
             app:destination="@id/offlineCourseDetailsFragment" />
+        <action
+            android:id="@+id/edit_grade"
+            app:destination="@id/editGradeFragment" />
     </fragment>
     <fragment
         android:id="@+id/offlineCoursesFragment"
@@ -88,5 +91,14 @@
         <action
             android:id="@+id/action_editOfflineCourseFragment_to_offlineCourseDetailsFragment2"
             app:destination="@id/offlineCourseDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editGradeFragment"
+        android:name="com.hasandeniz.studentassistant2.grades.editGrade.view.EditGradeFragment"
+        android:label="@string/edit_grade"
+        tools:layout="@layout/fragment_add_grade" >
+        <argument
+            android:name="grade"
+            app:argType="com.hasandeniz.studentassistant2.grades.base.data.model.Grade" />
     </fragment>
 </navigation>

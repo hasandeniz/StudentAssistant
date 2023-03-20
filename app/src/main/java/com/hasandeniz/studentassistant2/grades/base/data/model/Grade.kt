@@ -1,9 +1,9 @@
 package com.hasandeniz.studentassistant2.grades.base.data.model
 
-import android.graphics.Color
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "grade_table")
 data class Grade(
@@ -24,9 +24,9 @@ data class Grade(
     val type:String,
 
     @ColumnInfo(name = "courseColor")
-    val courseColor:Int = Color.BLUE,
+    val courseColor:Int,
 
-    ){
+    ): Serializable{
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0
 }

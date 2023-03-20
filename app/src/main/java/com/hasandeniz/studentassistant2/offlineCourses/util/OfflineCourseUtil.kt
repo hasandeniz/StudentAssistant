@@ -9,7 +9,7 @@ import com.hasandeniz.studentassistant2.databinding.FragmentAddOfflineCourseBind
 import java.text.SimpleDateFormat
 import java.util.*
 
-object SharedFunctions {
+object OfflineCourseUtil {
 
     private fun showStartTimePickerDialog(context: Context, binding: FragmentAddOfflineCourseBinding) {
         val calendar = Calendar.getInstance()

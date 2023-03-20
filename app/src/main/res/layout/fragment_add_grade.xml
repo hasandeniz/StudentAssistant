@@ -147,7 +147,7 @@
         android:id="@+id/btn_add_grade_add"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/add"
+        android:text="@string/save"
         android:paddingVertical="16dp"
         app:layout_constraintDimensionRatio="3:2"
         app:cornerRadius="8dp"

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.hasandeniz.studentassistant2.R
@@ -88,6 +89,8 @@ class GradesFragment : Fragment(), GradeAdapter.ClickListener {
         dialog.show()
 
         bottomSheetBinding.btnGradeBottomSheetEdit.setOnClickListener {
+            val action = GradesFragmentDirections.editGrade(grade)
+            Navigation.findNavController(binding.root).navigate(action)
             dialog.dismiss()
         }
 
@@ -123,6 +126,11 @@ class GradesFragment : Fragment(), GradeAdapter.ClickListener {
                 ContextCompat.getColor(requireContext(), colorResId)
             )
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }
