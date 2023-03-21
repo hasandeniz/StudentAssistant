@@ -19,11 +19,12 @@ import com.hasandeniz.studentassistant2.offlineCourses.base.ui.adapter.OfflineCo
 import com.hasandeniz.studentassistant2.offlineCourses.base.ui.adapter.RecyclerViewEmptyStateObserver
 import com.hasandeniz.studentassistant2.offlineCourses.base.ui.viewModel.OfflineCoursesViewModel
 import com.hasandeniz.studentassistant2.offlineCourses.util.OfflineCourseUtil
-import com.hasandeniz.studentassistant2.overview.RecentlyAccessedCourses
+import com.hasandeniz.studentassistant2.overview.util.RecentlyAccessedCourses
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class OfflineCoursesFragment : Fragment(), OfflineCoursesAdapter.OnItemClickListener, OfflineCoursesAdapter.OnButtonMoreClickListener {
+class OfflineCoursesFragment : Fragment(), OfflineCoursesAdapter.OnItemClickListener,
+    OfflineCoursesAdapter.OnButtonMoreClickListener {
 
     private val viewModel by viewModels<OfflineCoursesViewModel>()
     private var _binding: FragmentOfflineCoursesBinding? = null
@@ -41,11 +42,11 @@ class OfflineCoursesFragment : Fragment(), OfflineCoursesAdapter.OnItemClickList
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = OfflineCoursesAdapter(this,this)
-        binding.apply {
-            coursesRecyclerView.setHasFixedSize(true)
-            coursesRecyclerView.adapter = adapter
-        }
+        val adapter = OfflineCoursesAdapter(this, this)
+
+        binding.coursesRecyclerView.setHasFixedSize(true)
+        binding.coursesRecyclerView.adapter = adapter
+
 
         val emptyStateObserver =
             RecyclerViewEmptyStateObserver(binding.offlineCourseEmptyState.root, binding.coursesRecyclerView)

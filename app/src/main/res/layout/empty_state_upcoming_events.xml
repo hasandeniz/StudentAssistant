@@ -1,7 +1,8 @@
 <com.google.android.material.card.MaterialCardView android:id="@+id/cv_upcoming_events"
     style="@style/Widget.App.CardView"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="0.5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

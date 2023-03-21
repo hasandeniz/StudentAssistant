@@ -1,5 +1,7 @@
 package com.hasandeniz.studentassistant2.offlineCourses.base.ui.adapter
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
@@ -23,9 +25,11 @@ class RecyclerViewEmptyStateObserver constructor(private val emptyState: View, p
 
     private fun checkIfEmpty() {
         if (recyclerView.adapter?.itemCount == 0) {
-            emptyState.visibility = View.VISIBLE
+            Log.d(TAG, "checkIfEmpty: emptyState")
             recyclerView.visibility = View.GONE
+            emptyState.visibility = View.VISIBLE
         } else {
+            Log.d(TAG, "checkIfEmpty: not emptyState")
             emptyState.visibility = View.GONE
             recyclerView.visibility = View.VISIBLE
         }

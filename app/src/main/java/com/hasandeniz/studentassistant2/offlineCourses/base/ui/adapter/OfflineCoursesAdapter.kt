@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hasandeniz.studentassistant2.databinding.ItemOfflineCourseBinding
 import com.hasandeniz.studentassistant2.offlineCourses.base.data.model.OfflineCourse
 
-class OfflineCoursesAdapter (private val itemClickListener: OnItemClickListener, private val buttonMoreClickListener: OnButtonMoreClickListener):
+class OfflineCoursesAdapter(
+    private val itemClickListener: OnItemClickListener,
+    private val buttonMoreClickListener: OnButtonMoreClickListener
+) :
     ListAdapter<OfflineCourse, OfflineCoursesAdapter.OfflineCourseViewHolder>(OfflineCourseCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OfflineCourseViewHolder {
@@ -19,9 +22,9 @@ class OfflineCoursesAdapter (private val itemClickListener: OnItemClickListener,
     override fun onBindViewHolder(holder: OfflineCourseViewHolder, position: Int) {
         val offlineCourse = getItem(position)
 
-        if (offlineCourse != null) {
+        if (offlineCourse != null)
             holder.bind(offlineCourse)
-        }
+
     }
 
     inner class OfflineCourseViewHolder(private val binding: ItemOfflineCourseBinding) :

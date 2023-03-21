@@ -1,4 +1,4 @@
-package com.hasandeniz.studentassistant2.overview
+package com.hasandeniz.studentassistant2.overview.util
 
 import android.content.ContentValues.TAG
 import android.util.Log

@@ -22,7 +22,7 @@ import com.hasandeniz.studentassistant2.grades.base.data.model.Grade
 import com.hasandeniz.studentassistant2.offlineCourses.courseDetails.adapter.OfflineCourseDetailsGradeAdapter
 import com.hasandeniz.studentassistant2.offlineCourses.courseDetails.viewModel.OfflineCourseDetailsViewModel
 import com.hasandeniz.studentassistant2.offlineCourses.util.OfflineCourseUtil
-import com.hasandeniz.studentassistant2.overview.RecentlyAccessedCourses
+import com.hasandeniz.studentassistant2.overview.util.RecentlyAccessedCourses
 import dagger.hilt.android.AndroidEntryPoint
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -263,4 +263,8 @@ class OfflineCourseDetailsFragment : Fragment() {
         return Color.argb(alpha, red, green, blue)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

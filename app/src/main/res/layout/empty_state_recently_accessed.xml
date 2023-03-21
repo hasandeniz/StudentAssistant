@@ -1,5 +1,6 @@
 <com.google.android.material.card.MaterialCardView android:id="@+id/cv_recently_accessed_courses"
     style="@style/Widget.App.CardView"
+    app:cardElevation="0.5dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
