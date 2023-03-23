@@ -1,16 +1,13 @@
 package com.hasandeniz.studentassistant2.overview.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.hasandeniz.studentassistant2.R
 import com.hasandeniz.studentassistant2.databinding.FragmentOverviewBinding
@@ -39,17 +36,18 @@ class OverviewFragment : Fragment(), RecentlyAccessedCourseAdapter.OnItemClickLi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setAddButtonOnclickEvents()
 
+        setAddButtonOnclickEvents()
+        val navController = findNavController()
         binding.recentlyAccessedEmptyState.btnNoRecentlyAccessedCourseGetStarted.setOnClickListener {
             val action = OverviewFragmentDirections.overviewToAddOfflineCourse()
-            findNavController().navigate(action)
+            navController.navigate(action)
         }
 
         binding.btnRecentlyAccessedCoursesMore.setOnClickListener {
             val action = OverviewFragmentDirections.overviewToOfflineCourse()
-            val options = NavOptions.Builder().setPopUpTo(R.id.overviewFragment, true).build()
-            findNavController().navigate(action, options)
+            navController.navigate(action)
+
         }
 
         val adapter = RecentlyAccessedCourseAdapter(this)
@@ -115,13 +113,15 @@ class OverviewFragment : Fragment(), RecentlyAccessedCourseAdapter.OnItemClickLi
     }
 
     override fun onItemClick(offlineCourse: OfflineCourse) {
-        Toast.makeText(requireContext(), offlineCourse.courseName, Toast.LENGTH_SHORT).show()
+        val action = OverviewFragmentDirections.overviewToOfflineCourseDetails(offlineCourse.uuid, offlineCourse.courseName)
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 
 
 }

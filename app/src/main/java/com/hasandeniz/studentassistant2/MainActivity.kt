@@ -1,6 +1,7 @@
 package com.hasandeniz.studentassistant2
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
@@ -39,6 +40,14 @@ class MainActivity : AppCompatActivity() {
                 R.id.gradesFragment, R.id.timetableFragment, R.id.settingsFragment
             ), binding.drawerLayout
         )
+
+        navController.addOnDestinationChangedListener { _, _, _ ->
+            Log.d("Backstack", "Current Backstack:")
+            for (i in navController.backQueue) {
+                Log.d("Backstack", i.destination.displayName)
+            }
+        }
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navigationView.setupWithNavController(navController)
 

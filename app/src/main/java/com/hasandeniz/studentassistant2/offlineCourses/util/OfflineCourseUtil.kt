@@ -9,7 +9,6 @@ import com.google.android.material.button.MaterialButton
 import com.hasandeniz.studentassistant2.databinding.BottomSheetDaysBinding
 import com.hasandeniz.studentassistant2.databinding.FragmentAddOfflineCourseBinding
 import com.hasandeniz.studentassistant2.offlineCourses.base.data.model.OfflineCourse
-import com.hasandeniz.studentassistant2.overview.util.RecentlyAccessedCourses
 import java.text.SimpleDateFormat
 import java.util.*
 

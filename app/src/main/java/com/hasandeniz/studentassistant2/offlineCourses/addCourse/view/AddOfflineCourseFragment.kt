@@ -17,7 +17,6 @@ import com.hasandeniz.studentassistant2.databinding.FragmentAddOfflineCourseBind
 import com.hasandeniz.studentassistant2.offlineCourses.addCourse.viewModel.AddOfflineCourseViewModel
 import com.hasandeniz.studentassistant2.offlineCourses.base.data.model.OfflineCourse
 import com.hasandeniz.studentassistant2.offlineCourses.util.OfflineCourseUtil
-import com.hasandeniz.studentassistant2.overview.util.RecentlyAccessedCourses
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

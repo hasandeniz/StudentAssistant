@@ -17,7 +17,10 @@
             app:destination="@id/addOfflineCourseFragment" />
         <action
             android:id="@+id/overview_to_offline_course"
-            app:destination="@id/offlineCoursesFragment" />
+            app:destination="@id/offlineCoursesFragment"/>
+        <action
+            android:id="@+id/overview_to_offline_course_details"
+            app:destination="@id/offlineCourseDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"

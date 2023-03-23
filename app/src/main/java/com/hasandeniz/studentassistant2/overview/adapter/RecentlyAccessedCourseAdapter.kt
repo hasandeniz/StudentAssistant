@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.hasandeniz.studentassistant2.databinding.ItemRecentlyAccessedCourseBinding
 import com.hasandeniz.studentassistant2.offlineCourses.base.data.model.OfflineCourse
-import com.hasandeniz.studentassistant2.offlineCourses.base.ui.adapter.OfflineCoursesAdapter
-import com.hasandeniz.studentassistant2.overview.util.RecentlyAccessedCourses
 
 class RecentlyAccessedCourseAdapter(private val itemClickListener: OnItemClickListener) :
     ListAdapter<OfflineCourse, RecentlyAccessedCourseAdapter.RecentlyAccessedCourseViewHolder>(

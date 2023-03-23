@@ -117,38 +117,38 @@ class OfflineCourseDetailsFragment : Fragment() {
             objective = sharedPref.getInt(courseUuid.toString(), -1)
 
         }
+        val bottomSheetSetObjectiveBinding = BottomSheetSetObjectiveBinding.inflate(layoutInflater)
+        val dialog = BottomSheetDialog(requireContext())
+        dialog.setCancelable(true)
+        dialog.setContentView(bottomSheetSetObjectiveBinding.root)
         binding.tvCourseDetailsObjectiveEdit.setOnClickListener {
-            val bottomSheetSetObjectiveBinding = BottomSheetSetObjectiveBinding.inflate(layoutInflater)
-            val dialog = BottomSheetDialog(requireContext())
-            dialog.setCancelable(true)
-            dialog.setContentView(bottomSheetSetObjectiveBinding.root)
             dialog.show()
+        }
 
-            bottomSheetSetObjectiveBinding.bottomSheetObjectiveSetButton.setOnClickListener {
-                try {
-                    objective = bottomSheetSetObjectiveBinding.etObjectiveBottomSheet.text.toString().toInt()
-                    sharedPref.edit {
-                        putInt(courseUuid.toString(), objective)
-                    }
-                    binding.linearProgressIndicator.max = objective
-                    val decimalSymbols: DecimalFormatSymbols = DecimalFormatSymbols.getInstance()
-                    decimalSymbols.decimalSeparator = '.'
-                    val df = DecimalFormat("#.##", decimalSymbols)
-                    df.roundingMode = RoundingMode.HALF_UP
-                    val number = df.format(average.toFloat()).toFloat()
-                    binding.linearProgressIndicator.progress = number.roundToInt()
-                    binding.tvCourseDetailsObjectiveYourObjectiveGrade.text = objective.toString()
-                    if (objective > 0) binding.tvCourseDetailsObjectiveYourAverageGrade.text =
-                        df.format(average.toFloat())
-                    dialog.dismiss()
-                } catch (e: Exception) {
-                    Toast.makeText(context, "Please enter a correct value ", Toast.LENGTH_LONG).show()
+        bottomSheetSetObjectiveBinding.bottomSheetObjectiveSetButton.setOnClickListener {
+            try {
+                objective = bottomSheetSetObjectiveBinding.etObjectiveBottomSheet.text.toString().toInt()
+                sharedPref.edit {
+                    putInt(courseUuid.toString(), objective)
                 }
-            }
-
-            bottomSheetSetObjectiveBinding.bottomSheetCancelButton.setOnClickListener {
+                binding.linearProgressIndicator.max = objective
+                val decimalSymbols: DecimalFormatSymbols = DecimalFormatSymbols.getInstance()
+                decimalSymbols.decimalSeparator = '.'
+                val df = DecimalFormat("#.##", decimalSymbols)
+                df.roundingMode = RoundingMode.HALF_UP
+                val number = df.format(average.toFloat()).toFloat()
+                binding.linearProgressIndicator.progress = number.roundToInt()
+                binding.tvCourseDetailsObjectiveYourObjectiveGrade.text = objective.toString()
+                if (objective > 0) binding.tvCourseDetailsObjectiveYourAverageGrade.text =
+                    df.format(average.toFloat())
                 dialog.dismiss()
+            } catch (e: Exception) {
+                Toast.makeText(context, "Please enter a correct value ", Toast.LENGTH_LONG).show()
             }
+        }
+
+        bottomSheetSetObjectiveBinding.bottomSheetCancelButton.setOnClickListener {
+            dialog.dismiss()
         }
     }
 
@@ -156,23 +156,10 @@ class OfflineCourseDetailsFragment : Fragment() {
     private fun observeLiveData() {
         viewModel.offlineCourseLiveData.observe(viewLifecycleOwner) { course ->
 
-            /*val recentlyAccessedCourse =
-                RecentlyAccessedCourse(
-                    course.courseName,
-                    course.teacherName,
-                    course.courseRoom,
-                    course.courseDay,
-                    course.courseColor,
-                    course.uuid
-                )
-
-            viewModel.storeRecentlyAccessedCourse(recentlyAccessedCourse, course.uuid)*/
-
             RecentlyAccessedCourses.addRecentlyAccessedCourse(course,requireActivity())
 
 
             binding.apply {
-
 
                 ivCourseDetailsIndicator.setBackgroundColor(course.courseColor)
                 ivCourseDetailsGraphBackground.setBackgroundColor(course.courseColor)
