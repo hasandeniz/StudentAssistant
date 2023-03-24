@@ -46,7 +46,7 @@ class OverviewFragment : Fragment(), RecentlyAccessedCourseAdapter.OnItemClickLi
 
         binding.btnRecentlyAccessedCoursesMore.setOnClickListener {
             val action = OverviewFragmentDirections.overviewToOfflineCourse()
-            navController.navigate(action)
+            //navController.navigate(action)
 
         }
 

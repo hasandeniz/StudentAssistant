@@ -106,7 +106,7 @@
             android:name="offlineCourse"
             app:argType="com.hasandeniz.studentassistant2.offlineCourses.base.data.model.OfflineCourse" />
         <action
-            android:id="@+id/action_editOfflineCourseFragment_to_offlineCourseDetailsFragment2"
+            android:id="@+id/action_editOfflineCourseFragment_to_offlineCourseDetailsFragment"
             app:destination="@id/offlineCourseDetailsFragment" />
     </fragment>
     <fragment

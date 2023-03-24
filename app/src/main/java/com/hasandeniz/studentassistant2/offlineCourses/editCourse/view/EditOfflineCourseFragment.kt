@@ -96,7 +96,7 @@ class EditOfflineCourseFragment : Fragment() {
             viewModel.updateOfflineCourse(course)
             RecentlyAccessedCourses.deleteRecentlyAccessedCourse(offlineCourse, requireActivity())
             val action =
-                EditOfflineCourseFragmentDirections.actionEditOfflineCourseFragmentToOfflineCourseDetailsFragment2(
+                EditOfflineCourseFragmentDirections.actionEditOfflineCourseFragmentToOfflineCourseDetailsFragment(
                     course.uuid, course.courseName
                 )
             val options = NavOptions.Builder().setPopUpTo(R.id.offlineCoursesFragment, false).build()

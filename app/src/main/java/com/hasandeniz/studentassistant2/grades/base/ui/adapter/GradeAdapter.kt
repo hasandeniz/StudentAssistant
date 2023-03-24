@@ -48,7 +48,7 @@ class GradeAdapter(
             binding.btnMore.setOnClickListener {
                 val action = GradesFragmentDirections.actionGradesFragmentToOfflineCourseDetailsFragment(
                     selectedCourseId,
-                    selectedCourseName,
+                    selectedCourseName
                 )
                 Navigation.findNavController(it).navigate(action)
             }

@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- values-v29/themes.xml -->
     <style name="Theme.StudentAssistant" parent="Base.Theme.StudentAssistant">
         <item name="android:navigationBarColor">
