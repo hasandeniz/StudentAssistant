@@ -1,4 +1,4 @@
-package com.hasandeniz.studentassistant2.overview.adapter
+package com.hasandeniz.studentassistant2.overview.ui.adapter
 
 
 import android.view.LayoutInflater
@@ -30,12 +30,12 @@ class RecentlyAccessedCourseAdapter(private val itemClickListener: OnItemClickLi
 
         fun bind(offlineCourse: OfflineCourse) {
             binding.apply {
-                tvRecentlyAccessedItemTitle.text = offlineCourse.courseName
+                tvRecentlyAccessedItemTitle.text = offlineCourse.name
                 tvRecentlyAccessedItemTeacherName.text = offlineCourse.teacherName
-                tvRecentlyAccessedItemRoom.text = offlineCourse.courseRoom
-                val courseDate = offlineCourse.courseDay + ", " + offlineCourse.courseStartTime
+                tvRecentlyAccessedItemRoom.text = offlineCourse.location
+                val courseDate = offlineCourse.day + ", " + offlineCourse.startTime
                 tvRecentlyAccessedItemDate.text = courseDate
-                ivRecentlyAccessedCourseIndicator.setBackgroundColor(offlineCourse.courseColor)
+                ivRecentlyAccessedCourseIndicator.setBackgroundColor(offlineCourse.color)
             }
         }
     }

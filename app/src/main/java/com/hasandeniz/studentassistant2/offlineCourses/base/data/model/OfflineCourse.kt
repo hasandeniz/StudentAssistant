@@ -9,25 +9,28 @@ import java.io.Serializable
 data class OfflineCourse(
 
     @ColumnInfo(name = "Name")
-    val courseName: String,
+    val name: String,
 
     @ColumnInfo(name = "Teacher Name")
     val teacherName: String,
 
     @ColumnInfo(name = "Day")
-    val courseDay: String,
+    val day: String,
 
     @ColumnInfo(name = "Start Time")
-    val courseStartTime: String,
+    val startTime: String,
 
     @ColumnInfo(name = "Finish Time")
-    val courseFinishTime: String,
+    val finishTime: String,
 
-    @ColumnInfo(name = "Room")
-    val courseRoom: String,
+    @ColumnInfo(name = "Location")
+    val location: String,
 
     @ColumnInfo(name = "Color")
-    val courseColor: Int
+    val color: Int,
+
+    @ColumnInfo(name = "Last Accessed")
+    var lastAccessed: Long ,
 
 
 ): Serializable{

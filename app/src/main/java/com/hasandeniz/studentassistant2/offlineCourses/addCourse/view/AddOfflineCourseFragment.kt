@@ -54,7 +54,7 @@ class AddOfflineCourseFragment : Fragment() {
         val bottomSheetBinding = BottomSheetDaysBinding.inflate(layoutInflater)
         daysBottomSheet.setContentView(bottomSheetBinding.root)
 
-        OfflineCourseUtil.handleDaysButtonSheetButtons(binding, bottomSheetBinding, daysBottomSheet)
+        OfflineCourseUtil.setDaysButtonSheetButtonClickListeners(binding, bottomSheetBinding, daysBottomSheet)
 
         OfflineCourseUtil.handleEditTextOnClicks(binding, daysBottomSheet, requireContext())
 
@@ -79,13 +79,14 @@ class AddOfflineCourseFragment : Fragment() {
         if (OfflineCourseUtil.checkSaveState(binding)) {
             if (selectedColor == 0) selectedColor = R.color.course_color_1
             val course = OfflineCourse(
-                courseName = binding.etCourseName.text.toString(),
+                name = binding.etCourseName.text.toString(),
                 teacherName = binding.etTeacherName.text.toString(),
-                courseRoom = binding.etRoom.text.toString(),
-                courseDay = binding.etDate.text.toString(),
-                courseStartTime = binding.etStartTime.text.toString(),
-                courseFinishTime = binding.etFinishTime.text.toString(),
-                courseColor = selectedColor
+                location = binding.etRoom.text.toString(),
+                day = binding.etDate.text.toString(),
+                startTime = binding.etStartTime.text.toString(),
+                finishTime = binding.etFinishTime.text.toString(),
+                color = selectedColor,
+                lastAccessed = System.currentTimeMillis()
             )
             viewModel.insertOfflineCourse(course)
             val navController = findNavController()

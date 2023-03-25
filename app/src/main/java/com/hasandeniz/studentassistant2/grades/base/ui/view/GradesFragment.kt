@@ -61,7 +61,7 @@ class GradesFragment : Fragment(), GradeAdapter.ClickListener {
                     if (groupedGrades.containsKey(course.uuid)) {
                         sectionedAdapter.addSection(groupedGrades[course.uuid]?.let { it1 ->
                             GradeAdapter(
-                                course.courseName, it1 as ArrayList<Grade>, this
+                                course.name, it1 as ArrayList<Grade>, this
                             )
                         })
                     }

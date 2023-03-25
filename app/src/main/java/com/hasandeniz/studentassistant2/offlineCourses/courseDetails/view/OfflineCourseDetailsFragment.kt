@@ -54,7 +54,6 @@ class OfflineCourseDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         val menuHost = requireActivity() as MenuHost
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -87,7 +86,7 @@ class OfflineCourseDetailsFragment : Fragment() {
                         bottomSheetBinding.btnDelete.setOnClickListener {
                             OfflineCourseUtil.handleSharedPrefCleaning(offlineCourse, requireActivity())
                             RecentlyAccessedCourses.deleteRecentlyAccessedCourse(offlineCourse, requireActivity())
-                            viewModel.deleteCourse(courseUuid)
+                            viewModel.deleteOfflineCourse(courseUuid)
                             deleteBottomSheet.dismiss()
                             val navController = findNavController()
                             navController.navigateUp()
@@ -156,20 +155,21 @@ class OfflineCourseDetailsFragment : Fragment() {
     private fun observeLiveData() {
         viewModel.offlineCourseLiveData.observe(viewLifecycleOwner) { course ->
 
+
             RecentlyAccessedCourses.addRecentlyAccessedCourse(course,requireActivity())
 
 
             binding.apply {
 
-                ivCourseDetailsIndicator.setBackgroundColor(course.courseColor)
-                ivCourseDetailsGraphBackground.setBackgroundColor(course.courseColor)
-                ivGradesBackground.setBackgroundColor(course.courseColor)
+                ivCourseDetailsIndicator.setBackgroundColor(course.color)
+                ivCourseDetailsGraphBackground.setBackgroundColor(course.color)
+                ivGradesBackground.setBackgroundColor(course.color)
 
-                linearProgressIndicator.trackColor = adjustAlpha(course.courseColor)
-                linearProgressIndicator.setIndicatorColor(course.courseColor)
+                linearProgressIndicator.trackColor = adjustAlpha(course.color)
+                linearProgressIndicator.setIndicatorColor(course.color)
 
-                circularProgressIndicator.trackColor = adjustAlpha(course.courseColor)
-                circularProgressIndicator.setIndicatorColor(course.courseColor)
+                circularProgressIndicator.trackColor = adjustAlpha(course.color)
+                circularProgressIndicator.setIndicatorColor(course.color)
 
                 cvCourseSummary.visibility = View.VISIBLE
                 cvCourseDetailsAverage.visibility = View.VISIBLE
@@ -177,8 +177,8 @@ class OfflineCourseDetailsFragment : Fragment() {
                 cvCourseDetailsGrades.visibility = View.VISIBLE
 
                 tvCourseDetailsTeacherName.text = course.teacherName
-                tvCourseDetailsCourseRoom.text = course.courseRoom
-                val combinedDate = "${course.courseDay}, ${course.courseStartTime}"
+                tvCourseDetailsCourseRoom.text = course.location
+                val combinedDate = "${course.day}, ${course.startTime}"
                 tvCourseDetailsCourseDate.text = combinedDate
             }
 

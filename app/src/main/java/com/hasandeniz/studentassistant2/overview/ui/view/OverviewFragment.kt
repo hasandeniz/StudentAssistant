@@ -1,4 +1,4 @@
-package com.hasandeniz.studentassistant2.overview.view
+package com.hasandeniz.studentassistant2.overview.ui.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,15 +13,14 @@ import com.hasandeniz.studentassistant2.R
 import com.hasandeniz.studentassistant2.databinding.FragmentOverviewBinding
 import com.hasandeniz.studentassistant2.offlineCourses.base.data.model.OfflineCourse
 import com.hasandeniz.studentassistant2.offlineCourses.base.ui.adapter.RecyclerViewEmptyStateObserver
-import com.hasandeniz.studentassistant2.overview.adapter.RecentlyAccessedCourseAdapter
-import com.hasandeniz.studentassistant2.overview.util.RecentlyAccessedCourses
-import com.hasandeniz.studentassistant2.overview.viewModel.OverViewViewModel
+import com.hasandeniz.studentassistant2.overview.ui.adapter.RecentlyAccessedCourseAdapter
+import com.hasandeniz.studentassistant2.overview.ui.viewModel.OverviewViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class OverviewFragment : Fragment(), RecentlyAccessedCourseAdapter.OnItemClickListener {
 
-    private val viewModel by viewModels<OverViewViewModel>()
+    private val viewModel by viewModels<OverviewViewModel>()
     private var _binding: FragmentOverviewBinding? = null
     private val binding get() = _binding!!
     private var addButtonClicked = false
@@ -45,9 +44,8 @@ class OverviewFragment : Fragment(), RecentlyAccessedCourseAdapter.OnItemClickLi
         }
 
         binding.btnRecentlyAccessedCoursesMore.setOnClickListener {
-            val action = OverviewFragmentDirections.overviewToOfflineCourse()
+            //val action = OverviewFragmentDirections.overviewToOfflineCourse()
             //navController.navigate(action)
-
         }
 
         val adapter = RecentlyAccessedCourseAdapter(this)
@@ -57,9 +55,12 @@ class OverviewFragment : Fragment(), RecentlyAccessedCourseAdapter.OnItemClickLi
         val emptyStateObserverRecentlyAccessedCourses =
             RecyclerViewEmptyStateObserver(binding.recentlyAccessedEmptyState.root, binding.rvRecentlyAccessed)
         adapter.registerAdapterDataObserver(emptyStateObserverRecentlyAccessedCourses)
-        val recentlyAccessedCourses = RecentlyAccessedCourses.getAllRecentlyAccessedCourses(requireActivity())
-
-        adapter.submitList(recentlyAccessedCourses)
+        //val recentlyAccessedCourses = RecentlyAccessedCourses.getAllRecentlyAccessedCourses(requireActivity())
+        viewModel.allOfflineCourses.observe(viewLifecycleOwner) { offlineCourses ->
+            val sortedOfflineCourses = offlineCourses.sortedByDescending { it.lastAccessed }.take(5)
+            adapter.submitList(sortedOfflineCourses)
+        }
+        //adapter.submitList(recentlyAccessedCourses)
 
     }
 
@@ -113,7 +114,7 @@ class OverviewFragment : Fragment(), RecentlyAccessedCourseAdapter.OnItemClickLi
     }
 
     override fun onItemClick(offlineCourse: OfflineCourse) {
-        val action = OverviewFragmentDirections.overviewToOfflineCourseDetails(offlineCourse.uuid, offlineCourse.courseName)
+        val action = OverviewFragmentDirections.overviewToOfflineCourseDetails(offlineCourse.uuid, offlineCourse.name)
         findNavController().navigate(action)
     }
 

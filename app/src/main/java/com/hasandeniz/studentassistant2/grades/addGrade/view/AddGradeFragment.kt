@@ -49,7 +49,7 @@ class AddGradeFragment : Fragment() {
         viewModel.offlineCourseLiveData.observe(viewLifecycleOwner) { offlineCourses ->
             offlineCourses?.let {
                 for (course in offlineCourses) {
-                    addGradeCourses.add(course.courseName)
+                    addGradeCourses.add(course.name)
                 }
                 coursesList = offlineCourses
             }

@@ -37,7 +37,7 @@ class EditOfflineCourseFragment : Fragment() {
     ): View {
         _binding = FragmentAddOfflineCourseBinding.inflate(inflater, container, false)
         offlineCourse = args.offlineCourse
-        selectedColor = offlineCourse.courseColor
+        selectedColor = offlineCourse.color
         return binding.root
     }
 
@@ -59,7 +59,7 @@ class EditOfflineCourseFragment : Fragment() {
         val bottomSheetBinding = BottomSheetDaysBinding.inflate(layoutInflater)
         daysBottomSheet.setContentView(bottomSheetBinding.root)
 
-        OfflineCourseUtil.handleDaysButtonSheetButtons(binding, bottomSheetBinding, daysBottomSheet)
+        OfflineCourseUtil.setDaysButtonSheetButtonClickListeners(binding, bottomSheetBinding, daysBottomSheet)
 
         OfflineCourseUtil.handleEditTextOnClicks(binding, daysBottomSheet, requireContext())
 
@@ -84,20 +84,21 @@ class EditOfflineCourseFragment : Fragment() {
         if (OfflineCourseUtil.checkSaveState(binding)) {
             if (selectedColor == 0) selectedColor = R.color.light_backgrounds_closest_event_background
             val course = OfflineCourse(
-                courseName = binding.etCourseName.text.toString(),
+                name = binding.etCourseName.text.toString(),
                 teacherName = binding.etTeacherName.text.toString(),
-                courseRoom = binding.etRoom.text.toString(),
-                courseDay = binding.etDate.text.toString(),
-                courseStartTime = binding.etStartTime.text.toString(),
-                courseFinishTime = binding.etFinishTime.text.toString(),
-                courseColor = selectedColor
+                location = binding.etRoom.text.toString(),
+                day = binding.etDate.text.toString(),
+                startTime = binding.etStartTime.text.toString(),
+                finishTime = binding.etFinishTime.text.toString(),
+                color = selectedColor,
+                lastAccessed = System.currentTimeMillis()
             )
             course.uuid = offlineCourse.uuid
             viewModel.updateOfflineCourse(course)
             RecentlyAccessedCourses.deleteRecentlyAccessedCourse(offlineCourse, requireActivity())
             val action =
                 EditOfflineCourseFragmentDirections.actionEditOfflineCourseFragmentToOfflineCourseDetailsFragment(
-                    course.uuid, course.courseName
+                    course.uuid, course.name
                 )
             val options = NavOptions.Builder().setPopUpTo(R.id.offlineCoursesFragment, false).build()
             findNavController().navigate(action, options)
@@ -107,14 +108,14 @@ class EditOfflineCourseFragment : Fragment() {
     }
 
     private fun prepareUi() {
-        selectedColor = offlineCourse.courseColor
-        binding.etCourseName.setText(offlineCourse.courseName)
+        selectedColor = offlineCourse.color
+        binding.etCourseName.setText(offlineCourse.name)
         binding.etTeacherName.setText(offlineCourse.teacherName)
-        binding.etRoom.setText(offlineCourse.courseRoom)
-        binding.etDate.setText(offlineCourse.courseDay)
-        binding.etStartTime.setText(offlineCourse.courseStartTime)
-        binding.etFinishTime.setText(offlineCourse.courseFinishTime)
-        binding.ivPickCourseColor.setColorFilter(offlineCourse.courseColor)
+        binding.etRoom.setText(offlineCourse.location)
+        binding.etDate.setText(offlineCourse.day)
+        binding.etStartTime.setText(offlineCourse.startTime)
+        binding.etFinishTime.setText(offlineCourse.finishTime)
+        binding.ivPickCourseColor.setColorFilter(offlineCourse.color)
     }
 
     override fun onDestroyView() {

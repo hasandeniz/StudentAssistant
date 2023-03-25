@@ -53,13 +53,13 @@ class OfflineCoursesAdapter(
         }
 
         fun bind(offlineCourse: OfflineCourse) {
-            val combinedDate = "${offlineCourse.courseDay}, ${offlineCourse.courseStartTime}"
+            val combinedDate = "${offlineCourse.day}, ${offlineCourse.startTime}"
             binding.apply {
-                tvCourseName.text = offlineCourse.courseName
+                tvCourseName.text = offlineCourse.name
                 tvCourseDate.text = combinedDate
-                tvCourseRoom.text = offlineCourse.courseRoom
+                tvCourseRoom.text = offlineCourse.location
                 tvTeacherName.text = offlineCourse.teacherName
-                ivIndicatorColor.setBackgroundColor(offlineCourse.courseColor)
+                ivIndicatorColor.setBackgroundColor(offlineCourse.color)
             }
         }
     }

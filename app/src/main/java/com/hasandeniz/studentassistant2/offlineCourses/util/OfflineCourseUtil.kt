@@ -14,7 +14,7 @@ import java.util.*
 
 object OfflineCourseUtil {
 
-    private fun showStartTimePickerDialog(context: Context, binding: FragmentAddOfflineCourseBinding) {
+    private fun showTimePickerDialog(context: Context, binding: FragmentAddOfflineCourseBinding, isStartTime: Boolean) {
         val calendar = Calendar.getInstance()
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
         val minute = calendar.get(Calendar.MINUTE)
@@ -26,30 +26,13 @@ object OfflineCourseUtil {
                 selectedCalendar.set(Calendar.MINUTE, minuteOfHour)
 
                 val sdf = SimpleDateFormat("hh:mm a", Locale.getDefault())
-                val selectedStartingTime = sdf.format(selectedCalendar.time)
-                binding.etStartTime.setText(selectedStartingTime)
+                val selectedTime = sdf.format(selectedCalendar.time)
 
-            }, hour, minute, false
-        )
-
-        timePickerDialog.show()
-    }
-
-    private fun showFinishTimePickerDialog(context: Context, binding: FragmentAddOfflineCourseBinding) {
-        val calendar = Calendar.getInstance()
-        val hour = calendar.get(Calendar.HOUR_OF_DAY)
-        val minute = calendar.get(Calendar.MINUTE)
-
-        val timePickerDialog = TimePickerDialog(
-            context, { _, hourOfDay, minuteOfHour ->
-                val selectedCalendar = Calendar.getInstance()
-                selectedCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
-                selectedCalendar.set(Calendar.MINUTE, minuteOfHour)
-
-                val sdf = SimpleDateFormat("hh:mm a", Locale.getDefault())
-                val selectedFinishingTime = sdf.format(selectedCalendar.time)
-                binding.etFinishTime.setText(selectedFinishingTime)
-
+                if (isStartTime) {
+                    binding.etStartTime.setText(selectedTime)
+                } else {
+                    binding.etFinishTime.setText(selectedTime)
+                }
             }, hour, minute, false
         )
 
@@ -57,41 +40,38 @@ object OfflineCourseUtil {
     }
 
     fun checkSaveState(binding: FragmentAddOfflineCourseBinding): Boolean {
-        var allFieldsFilled = true
+        return isAllFieldsFilled(binding)
+    }
 
-        for (editText in listOf(
+    private fun isAllFieldsFilled(binding: FragmentAddOfflineCourseBinding): Boolean {
+        return listOf(
             binding.etDate,
             binding.etStartTime,
             binding.etFinishTime,
             binding.etCourseName,
             binding.etTeacherName,
             binding.etRoom
-        )) {
-            if (editText.text.isBlank()) {
-                allFieldsFilled = false
-            }
+        ).all { editText ->
+            editText.text.isNotBlank()
         }
-        return allFieldsFilled
     }
 
-    fun handleDaysButtonSheetButtons(
+    fun setDaysButtonSheetButtonClickListeners(
         binding: FragmentAddOfflineCourseBinding,
         bottomSheetBinding: BottomSheetDaysBinding,
         daysBottomSheet: BottomSheetDialog
     ) {
         bottomSheetBinding.apply {
-            val buttonArray =
-                listOf(btnMonday, btnTuesday, btnWednesday, btnThursday, btnFriday, btnSaturday, btnSunday)
-            for (button in buttonArray) {
+            listOf(btnMonday, btnTuesday, btnWednesday, btnThursday, btnFriday, btnSaturday, btnSunday).forEach { button ->
                 button.setOnClickListener {
-                    setEditTextText(button, binding)
+                    setEditTextDate(button, binding)
                     daysBottomSheet.dismiss()
                 }
             }
         }
     }
 
-    private fun setEditTextText(button: MaterialButton, binding: FragmentAddOfflineCourseBinding) {
+    private fun setEditTextDate(button: MaterialButton, binding: FragmentAddOfflineCourseBinding) {
         val selectedDay = button.text.toString()
         binding.etDate.setText(selectedDay)
 
@@ -106,20 +86,18 @@ object OfflineCourseUtil {
         }
 
         binding.etStartTime.setOnClickListener {
-            showStartTimePickerDialog(context, binding)
+            showTimePickerDialog(context, binding, isStartTime = true)
         }
 
         binding.etFinishTime.setOnClickListener {
-            showFinishTimePickerDialog(context, binding)
+            showTimePickerDialog(context, binding, isStartTime = false)
         }
     }
 
-    fun handleSharedPrefCleaning(offlineCourse: OfflineCourse, activity: FragmentActivity){
+    fun handleSharedPrefCleaning(offlineCourse: OfflineCourse, activity: FragmentActivity) {
         val sharedPref = activity.getPreferences(Context.MODE_PRIVATE)
-        if (sharedPref!!.contains(offlineCourse.uuid.toString())) {
-            sharedPref.edit {
-                remove(offlineCourse.uuid.toString())
-            }
+        if (sharedPref?.contains(offlineCourse.uuid.toString()) == true) {
+            sharedPref.edit { remove(offlineCourse.uuid.toString()) }
         }
     }
 

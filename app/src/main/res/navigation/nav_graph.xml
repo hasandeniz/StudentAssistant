@@ -6,7 +6,7 @@
     app:startDestination="@id/overviewFragment">
     <fragment
         android:id="@+id/overviewFragment"
-        android:name="com.hasandeniz.studentassistant2.overview.view.OverviewFragment"
+        android:name="com.hasandeniz.studentassistant2.overview.ui.view.OverviewFragment"
         android:label="@string/overview"
         tools:layout="@layout/fragment_overview" >
         <action

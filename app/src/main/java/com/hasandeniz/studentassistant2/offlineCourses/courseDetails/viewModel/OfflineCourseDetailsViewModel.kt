@@ -25,7 +25,7 @@ class OfflineCourseDetailsViewModel @Inject constructor(
     val gradesLiveData: LiveData<List<Grade>> get() = _gradesLiveData
 
 
-    fun deleteCourse(uuid: Int) {
+    fun deleteOfflineCourse(uuid: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             val offlineCourse = offlineCourseRepository.getOfflineCourseByUuid(uuid)
             offlineCourseRepository.deleteOfflineCourse(offlineCourse)
@@ -36,6 +36,8 @@ class OfflineCourseDetailsViewModel @Inject constructor(
     fun getOfflineCourse(uuid: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             val offlineCourse = offlineCourseRepository.getOfflineCourseByUuid(uuid)
+            offlineCourse.lastAccessed = System.currentTimeMillis()
+            offlineCourseRepository.updateOfflineCourse(offlineCourse)
             _offlineCourseLiveData.postValue(offlineCourse)
         }
     }

@@ -67,7 +67,7 @@ class OfflineCoursesFragment : Fragment(), OfflineCoursesAdapter.OnItemClickList
     override fun onItemClick(offlineCourse: OfflineCourse) {
         val action = OfflineCoursesFragmentDirections.actionOfflineCoursesFragmentToOfflineCourseDetailsFragment(
             offlineCourse.uuid,
-            offlineCourse.courseName
+            offlineCourse.name
         )
         findNavController().navigate(action)
 
