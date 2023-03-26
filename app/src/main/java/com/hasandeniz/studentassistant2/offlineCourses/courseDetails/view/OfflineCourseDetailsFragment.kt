@@ -22,7 +22,6 @@ import com.hasandeniz.studentassistant2.grades.base.data.model.Grade
 import com.hasandeniz.studentassistant2.offlineCourses.courseDetails.adapter.OfflineCourseDetailsGradeAdapter
 import com.hasandeniz.studentassistant2.offlineCourses.courseDetails.viewModel.OfflineCourseDetailsViewModel
 import com.hasandeniz.studentassistant2.offlineCourses.util.OfflineCourseUtil
-import com.hasandeniz.studentassistant2.overview.util.RecentlyAccessedCourses
 import dagger.hilt.android.AndroidEntryPoint
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -85,7 +84,6 @@ class OfflineCourseDetailsFragment : Fragment() {
                         }
                         bottomSheetBinding.btnDelete.setOnClickListener {
                             OfflineCourseUtil.handleSharedPrefCleaning(offlineCourse, requireActivity())
-                            RecentlyAccessedCourses.deleteRecentlyAccessedCourse(offlineCourse, requireActivity())
                             viewModel.deleteOfflineCourse(courseUuid)
                             deleteBottomSheet.dismiss()
                             val navController = findNavController()
@@ -154,10 +152,6 @@ class OfflineCourseDetailsFragment : Fragment() {
 
     private fun observeLiveData() {
         viewModel.offlineCourseLiveData.observe(viewLifecycleOwner) { course ->
-
-
-            RecentlyAccessedCourses.addRecentlyAccessedCourse(course,requireActivity())
-
 
             binding.apply {
 

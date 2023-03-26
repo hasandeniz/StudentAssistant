@@ -19,7 +19,6 @@ import com.hasandeniz.studentassistant2.offlineCourses.base.ui.adapter.OfflineCo
 import com.hasandeniz.studentassistant2.offlineCourses.base.ui.adapter.RecyclerViewEmptyStateObserver
 import com.hasandeniz.studentassistant2.offlineCourses.base.ui.viewModel.OfflineCoursesViewModel
 import com.hasandeniz.studentassistant2.offlineCourses.util.OfflineCourseUtil
-import com.hasandeniz.studentassistant2.overview.util.RecentlyAccessedCourses
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -98,7 +97,6 @@ class OfflineCoursesFragment : Fragment(), OfflineCoursesAdapter.OnItemClickList
                     }
                     bottomSheetBinding.btnDelete.setOnClickListener {
                         OfflineCourseUtil.handleSharedPrefCleaning(offlineCourse, requireActivity())
-                        RecentlyAccessedCourses.deleteRecentlyAccessedCourse(offlineCourse, requireActivity())
                         viewModel.deleteCourse(offlineCourse.uuid)
                         deleteBottomSheet.dismiss()
                     }

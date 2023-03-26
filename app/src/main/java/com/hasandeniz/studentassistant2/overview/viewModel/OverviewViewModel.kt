@@ -1,4 +1,4 @@
-package com.hasandeniz.studentassistant2.overview.ui.viewModel
+package com.hasandeniz.studentassistant2.overview.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

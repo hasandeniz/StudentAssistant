@@ -1,4 +1,4 @@
-package com.hasandeniz.studentassistant2.overview.ui.view
+package com.hasandeniz.studentassistant2.overview.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,8 +13,8 @@ import com.hasandeniz.studentassistant2.R
 import com.hasandeniz.studentassistant2.databinding.FragmentOverviewBinding
 import com.hasandeniz.studentassistant2.offlineCourses.base.data.model.OfflineCourse
 import com.hasandeniz.studentassistant2.offlineCourses.base.ui.adapter.RecyclerViewEmptyStateObserver
-import com.hasandeniz.studentassistant2.overview.ui.adapter.RecentlyAccessedCourseAdapter
-import com.hasandeniz.studentassistant2.overview.ui.viewModel.OverviewViewModel
+import com.hasandeniz.studentassistant2.overview.adapter.RecentlyAccessedCourseAdapter
+import com.hasandeniz.studentassistant2.overview.viewModel.OverviewViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,7 +35,6 @@ class OverviewFragment : Fragment(), RecentlyAccessedCourseAdapter.OnItemClickLi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         setAddButtonOnclickEvents()
         val navController = findNavController()
         binding.recentlyAccessedEmptyState.btnNoRecentlyAccessedCourseGetStarted.setOnClickListener {
@@ -48,19 +47,17 @@ class OverviewFragment : Fragment(), RecentlyAccessedCourseAdapter.OnItemClickLi
             //navController.navigate(action)
         }
 
-        val adapter = RecentlyAccessedCourseAdapter(this)
-        binding.rvRecentlyAccessed.setHasFixedSize(true)
-        binding.rvRecentlyAccessed.adapter = adapter
+         viewModel.allOfflineCourses.observe(viewLifecycleOwner) { offlineCourses ->
+            val adapter = RecentlyAccessedCourseAdapter(this)
+            binding.rvRecentlyAccessed.setHasFixedSize(true)
+            binding.rvRecentlyAccessed.adapter = adapter
 
-        val emptyStateObserverRecentlyAccessedCourses =
-            RecyclerViewEmptyStateObserver(binding.recentlyAccessedEmptyState.root, binding.rvRecentlyAccessed)
-        adapter.registerAdapterDataObserver(emptyStateObserverRecentlyAccessedCourses)
-        //val recentlyAccessedCourses = RecentlyAccessedCourses.getAllRecentlyAccessedCourses(requireActivity())
-        viewModel.allOfflineCourses.observe(viewLifecycleOwner) { offlineCourses ->
+            val emptyStateObserverRecentlyAccessedCourses =
+                RecyclerViewEmptyStateObserver(binding.recentlyAccessedEmptyState.root, binding.rvRecentlyAccessed)
+            adapter.registerAdapterDataObserver(emptyStateObserverRecentlyAccessedCourses)
             val sortedOfflineCourses = offlineCourses.sortedByDescending { it.lastAccessed }.take(5)
             adapter.submitList(sortedOfflineCourses)
         }
-        //adapter.submitList(recentlyAccessedCourses)
 
     }
 

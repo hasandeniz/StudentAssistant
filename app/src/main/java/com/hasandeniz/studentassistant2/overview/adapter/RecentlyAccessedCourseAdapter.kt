@@ -1,4 +1,4 @@
-package com.hasandeniz.studentassistant2.overview.ui.adapter
+package com.hasandeniz.studentassistant2.overview.adapter
 
 
 import android.view.LayoutInflater
