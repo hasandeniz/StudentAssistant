@@ -22,31 +22,49 @@ object OfflineCourseUtil {
      * @param isStartTime true if the start time should be updated, false if the finish time should be updated
      */
     private fun showTimePickerDialog(context: Context, binding: FragmentAddOfflineCourseBinding, isStartTime: Boolean) {
-        val calendar = Calendar.getInstance()
-        val timeFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
+        val currentTime = Calendar.getInstance()
+        val hour = currentTime.get(Calendar.HOUR_OF_DAY)
+        val minute = currentTime.get(Calendar.MINUTE)
 
-        val timePickerDialog = TimePickerDialog(
-            context, { _, hourOfDay, minuteOfHour ->
-                val selectedCalendar = Calendar.getInstance().apply {
-                    set(Calendar.HOUR_OF_DAY, hourOfDay)
-                    set(Calendar.MINUTE, minuteOfHour)
-                }
-
-                val selectedTime = timeFormat.format(selectedCalendar.time)
+        val timePicker = TimePickerDialog(
+            context, { _, selectedHour, selectedMinute ->
+                val timeInMillis = getTimeInMillis(selectedHour, selectedMinute)
 
                 if (isStartTime) {
-                    binding.etStartTime.setText(selectedTime)
+                    binding.etStartTime.setText(formatTime(timeInMillis))
                 } else {
-                    binding.etFinishTime.setText(selectedTime)
+                    binding.etFinishTime.setText(formatTime(timeInMillis))
                 }
-            },
-            calendar.get(Calendar.HOUR_OF_DAY),
-            calendar.get(Calendar.MINUTE),
-            false
+            }, hour, minute, true
         )
-
-        timePickerDialog.show()
+        timePicker.show()
     }
+
+    /**
+     * Converts the selected hour and minute values from a time picker dialog into Unix timestamp format.
+     * @param hour The selected hour value from the time picker.
+     * @param minute The selected minute value from the time picker.
+     * @return The Unix timestamp value in milliseconds.
+     */
+    private fun getTimeInMillis(hour: Int, minute: Int): Long {
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.HOUR_OF_DAY, hour)
+        calendar.set(Calendar.MINUTE, minute)
+        calendar.set(Calendar.SECOND, 0)
+        calendar.set(Calendar.MILLISECOND, 0)
+        return calendar.timeInMillis
+    }
+
+    /**
+     * Formats a Unix timestamp value as a human-readable time string in the format "hh:mm AM/PM".
+     * @param timeInMillis The Unix timestamp value in milliseconds to format.
+     * @return The formatted time string.
+     */
+    private fun formatTime(timeInMillis: Long): String {
+        val dateFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
+        return dateFormat.format(Date(timeInMillis))
+    }
+
 
     /**
      * Checks if all required fields in the fragment's layout have been filled.

@@ -57,6 +57,7 @@ class OverviewFragment : Fragment(), RecentlyAccessedCourseAdapter.OnItemClickLi
             adapter.registerAdapterDataObserver(emptyStateObserverRecentlyAccessedCourses)
             val sortedOfflineCourses = offlineCourses.sortedByDescending { it.lastAccessed }.take(5)
             adapter.submitList(sortedOfflineCourses)
+
         }
 
     }
