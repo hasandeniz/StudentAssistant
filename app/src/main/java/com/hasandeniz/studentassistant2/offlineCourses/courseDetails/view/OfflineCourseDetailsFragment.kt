@@ -140,7 +140,7 @@ class OfflineCourseDetailsFragment : Fragment() {
                     df.format(average.toFloat())
                 dialog.dismiss()
             } catch (e: Exception) {
-                Toast.makeText(context, "Please enter a correct value ", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, getString(R.string.please_enter_a_valid_value), Toast.LENGTH_LONG).show()
             }
         }
 

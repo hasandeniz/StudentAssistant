@@ -30,10 +30,9 @@ data class OfflineCourse(
     val color: Int,
 
     @ColumnInfo(name = "Last Accessed")
-    var lastAccessed: Long ,
+    var lastAccessed: Long
 
-
-): Serializable{
+) : Serializable {
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0
 }

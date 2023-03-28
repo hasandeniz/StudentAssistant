@@ -143,6 +143,7 @@
     <string name="delete_grade_message">Are you sure you want to delete this grade? This action cannot be undone.</string>
     <string name="add_new_course">Add new course</string>
     <string name="day_of_week">Day of week</string>
+    <string name="please_enter_a_valid_value">Please enter a valid value</string>
 
 
     <array name="offline_course_colors_array">
