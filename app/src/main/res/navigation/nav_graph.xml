@@ -23,15 +23,6 @@
             app:destination="@id/offlineCourseDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.hasandeniz.studentassistant2.settings.SettingsFragment"
-        android:label="@string/settings" />
-    <fragment
-        android:id="@+id/classroomFragment"
-        android:name="com.hasandeniz.studentassistant2.classroom.ui.ClassroomFragment"
-        android:label="@string/classroom"
-        tools:layout="@layout/fragment_classroom" />
-    <fragment
         android:id="@+id/gradesFragment"
         android:name="com.hasandeniz.studentassistant2.grades.base.ui.view.GradesFragment"
         android:label="@string/grades"

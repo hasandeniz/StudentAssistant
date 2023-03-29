@@ -8,11 +8,6 @@
             android:icon="@drawable/ic_home"
             android:checkable="true" />
         <item
-            android:id="@+id/classroomFragment"
-            android:title="@string/classroom"
-            android:icon="@drawable/ic_classroom"
-            android:checkable="true" />
-        <item
             android:id="@+id/offlineCoursesFragment"
             android:title="@string/courses"
             android:icon="@drawable/ic_courses"
@@ -22,20 +17,10 @@
             android:title="@string/grades"
             android:icon="@drawable/ic_grades"
             android:checkable="true" />
-    </group>
-
-    <group android:id="@+id/group2">
-
         <item
             android:id="@+id/timetableFragment"
             android:title="@string/timetable"
             android:icon="@drawable/ic_timetable"
             android:checkable="true" />
-        <item
-            android:id="@+id/settingsFragment"
-            android:title="@string/settings"
-            android:icon="@drawable/ic_settings"
-            android:checkable="true" />
-
     </group>
 </menu>

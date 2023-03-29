@@ -36,13 +36,12 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.findNavController()
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.overviewFragment, R.id.offlineCoursesFragment, R.id.classroomFragment,
-                R.id.gradesFragment, R.id.timetableFragment, R.id.settingsFragment
+                R.id.overviewFragment, R.id.offlineCoursesFragment,
+                R.id.gradesFragment, R.id.timetableFragment
             ), binding.drawerLayout
         )
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            //Log.d("Destination Changed", "Destination ID: ${destination.displayName}")
             Log.d("Backstack", "Current Backstack:")
             for (i in navController.backQueue) {
                 Log.d("Backstack", i.destination.displayName)
