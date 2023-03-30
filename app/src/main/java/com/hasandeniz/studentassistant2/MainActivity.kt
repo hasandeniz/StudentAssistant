@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             ), binding.drawerLayout
         )
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
+        navController.addOnDestinationChangedListener { _, _, _ ->
             Log.d("Backstack", "Current Backstack:")
             for (i in navController.backQueue) {
                 Log.d("Backstack", i.destination.displayName)
