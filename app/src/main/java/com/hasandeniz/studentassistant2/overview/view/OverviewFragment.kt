@@ -14,8 +14,10 @@ import com.hasandeniz.studentassistant2.databinding.FragmentOverviewBinding
 import com.hasandeniz.studentassistant2.offlineCourses.base.data.model.OfflineCourse
 import com.hasandeniz.studentassistant2.offlineCourses.base.ui.adapter.RecyclerViewEmptyStateObserver
 import com.hasandeniz.studentassistant2.overview.adapter.RecentlyAccessedCourseAdapter
+import com.hasandeniz.studentassistant2.overview.model.CustomEvent
 import com.hasandeniz.studentassistant2.overview.viewModel.OverviewViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class OverviewFragment : Fragment(), RecentlyAccessedCourseAdapter.OnItemClickListener {
@@ -47,7 +49,7 @@ class OverviewFragment : Fragment(), RecentlyAccessedCourseAdapter.OnItemClickLi
             //navController.navigate(action)
         }
 
-         viewModel.allOfflineCourses.observe(viewLifecycleOwner) { offlineCourses ->
+        viewModel.allOfflineCourses.observe(viewLifecycleOwner) { offlineCourses ->
             val adapter = RecentlyAccessedCourseAdapter(this)
             binding.rvRecentlyAccessed.setHasFixedSize(true)
             binding.rvRecentlyAccessed.adapter = adapter
@@ -57,6 +59,27 @@ class OverviewFragment : Fragment(), RecentlyAccessedCourseAdapter.OnItemClickLi
             adapter.registerAdapterDataObserver(emptyStateObserverRecentlyAccessedCourses)
             val sortedOfflineCourses = offlineCourses.sortedByDescending { it.lastAccessed }.take(5)
             adapter.submitList(sortedOfflineCourses)
+
+            val upcomingEventList = ArrayList<CustomEvent>()
+            var eventId: Long = 0
+            offlineCourses.forEach { offlineCourse ->
+                val endCalendar = viewModel.setCalendar(offlineCourse.finishTime, offlineCourse.day)
+                var remainingDay =
+                    endCalendar.get(Calendar.DAY_OF_YEAR) - Calendar.getInstance().get(Calendar.DAY_OF_YEAR)
+                if (remainingDay == 7)
+                    remainingDay = 0
+
+                if (remainingDay < 0)
+                    remainingDay += 7
+
+                val event =
+                    CustomEvent(eventId, "Lecture", offlineCourse.name, remainingDay, endCalendar, offlineCourse.color)
+                if (event.remaining in 0..7) {
+                    upcomingEventList.add(event)
+                    upcomingEventList.sortBy { it.remaining }
+                    eventId++
+                }
+            }
 
         }
 
@@ -120,7 +143,6 @@ class OverviewFragment : Fragment(), RecentlyAccessedCourseAdapter.OnItemClickLi
         super.onDestroyView()
         _binding = null
     }
-
 
 
 }
